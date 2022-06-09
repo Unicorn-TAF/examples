@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Unicorn.Taf.Api;
 using Unicorn.Taf.Core.Logging;
 using Unicorn.Taf.Core.Testing;
@@ -15,6 +16,10 @@ namespace Unicorn.Taf.Core.Engine
     /// Provides with ability to run tests in specified order and with specified per suite categories.
     /// It is parameterized by dictionary where key is suite name and value is category
     /// </summary>
+    
+
+    // TODO: think about cases where suite parallel runs have suites with dependent suites
+
     public class PlaylistRunner : TestsRunner
     {
         private const string DataSetDelimiter = "::";
@@ -29,21 +34,11 @@ namespace Unicorn.Taf.Core.Engine
         /// <param name="testAssembly">assembly with tests</param>
         /// <param name="filters">filters (key: suite name, value: tests categories to run within the suite)</param>
         /// <exception cref="FileNotFoundException">is thrown when tests assembly was not found</exception>
-        public PlaylistRunner(Assembly testAssembly, Dictionary<string, string> filters) 
+        public PlaylistRunner(Assembly testAssembly, Dictionary<string, string> filters)
         {
-            if (testAssembly == null)
-            {
-                throw new ArgumentNullException(nameof(testAssembly));
-            }
-
-            if (filters == null)
-            {
-                throw new ArgumentNullException(nameof(filters));
-            }
-
-            _testAssembly = testAssembly;
+            _testAssembly = testAssembly ?? throw new ArgumentNullException(nameof(testAssembly));
+            _filters = filters ?? throw new ArgumentNullException(nameof(filters));
             Outcome = new LaunchOutcome();
-            _filters = filters;
         }
 
         /// <summary>
@@ -53,9 +48,9 @@ namespace Unicorn.Taf.Core.Engine
         /// found for specified suite name in run filters</exception>
         public override IOutcome RunTests()
         {
-            var suitesToRun = CollectSuitesToRun(_testAssembly);
+            var runnableSuites = CollectSuitesToRun(_testAssembly);
 
-            if (!suitesToRun.Any())
+            if (!runnableSuites.Any())
             {
                 return null;
             }
@@ -76,15 +71,27 @@ namespace Unicorn.Taf.Core.Engine
 
             if (Outcome.RunInitialized)
             {
-                foreach (var suiteEntry in suitesToRun.Keys)
+                // Compute runnable suites
+                var suiteToRun = new Dictionary<Type, string>();
+
+                foreach (var suiteEntry in runnableSuites.Keys)
                 {
-                    string[] pair = Regex.Split(suiteEntry, DataSetDelimiter);
-                    string dataSet = pair.Length == 2 ? pair[1] : string.Empty;
+                    string[] suiteAndDataSet = Regex.Split(suiteEntry, DataSetDelimiter);
+                    string dataSet = suiteAndDataSet.Length == 2 ? suiteAndDataSet[1] : string.Empty;
 
-                    Config.SetTestCategories(_filters[suiteEntry]);
+                    // Commented for now.
+                    // This action removes auto-population of config(and therefor report) with executed suites that are selected implicitly.
+                    // To restore this functionality, need to figure something else. Config should be unidirectional.
+                    //// Config.SetTestCategories(_filters[suiteEntry]);
 
-                    RunTestSuite(suitesToRun[suiteEntry], dataSet);
+                    suiteToRun.Add(runnableSuites[suiteEntry], dataSet);
                 }
+
+                // Execute in parallel runnable steps
+                Parallel.ForEach(
+                    suiteToRun,
+                    new ParallelOptions { MaxDegreeOfParallelism = Config.Threads },
+                    suiteAndDataSetPair => RunTestSuite(suiteAndDataSetPair.Key, suiteAndDataSetPair.Value));
 
                 // Execute run finalize action if exists in assembly.
                 GetRunInitCleanupMethod(_testAssembly, typeof(RunFinalizeAttribute))?.Invoke(null, null);
@@ -119,7 +126,7 @@ namespace Unicorn.Taf.Core.Engine
         private Dictionary<string, Type> CollectSuitesToRun(Assembly assembly)
         {
             var suitesToRun = new Dictionary<string, Type>();
-             
+
             //As suite entry in filter can contain data set name need to extract pure suites names
             //to filter assembly types by them 
             var suiteNames = _filters.Keys.Select(k => GetSuiteNameFromFilter(k));
@@ -131,7 +138,7 @@ namespace Unicorn.Taf.Core.Engine
             {
                 var suiteName = GetSuiteNameFromFilter(filterSuiteName);
 
-                var suite = filteredSuites.FirstOrDefault(s => 
+                var suite = filteredSuites.FirstOrDefault(s =>
                     AdapterUtilities.GetSuiteName(s).Equals(suiteName, StringComparison.InvariantCultureIgnoreCase));
 
                 if (suite == null)
@@ -154,6 +161,6 @@ namespace Unicorn.Taf.Core.Engine
         }
 
         private static string GetSuiteNameFromFilter(string filterSuiteName) =>
-            Regex.Split(filterSuiteName, DataSetDelimiter)[0]; 
+            Regex.Split(filterSuiteName, DataSetDelimiter)[0];
     }
 }

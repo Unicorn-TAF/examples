@@ -16,8 +16,13 @@ namespace Unicorn.Taf.Core
         /// <summary>
         /// Parallel by assembly
         /// </summary>
-        Assembly,
-        //Suite,
+        None,
+
+        /// <summary>
+        /// Parallel by suites
+        /// </summary>
+        Suite,
+
         //Test
     }
 
@@ -137,6 +142,7 @@ namespace Unicorn.Taf.Core
         /// <summary>
         /// Set tests categories needed to be run.
         /// All categories are converted in upper case. Blank categories are ignored.
+        /// Do not use this method outside testing and initialization of runners
         /// </summary>
         /// <param name="categoriesToRun">array of categories</param>
         public static void SetTestCategories(params string[] categoriesToRun) =>
@@ -250,7 +256,7 @@ namespace Unicorn.Taf.Core
             testFiltersForReporting = new string[0];
             TestTimeout = TimeSpan.FromMinutes(15);
             SuiteTimeout = TimeSpan.FromMinutes(40);
-            ParallelBy = Parallelization.Assembly;
+            ParallelBy = Parallelization.None;
             Threads = 1;
             DependentTests = TestsDependency.Run;
             TestsExecutionOrder = TestsOrder.Declaration;

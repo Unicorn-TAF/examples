@@ -49,12 +49,13 @@ namespace Unicorn.UnitTests.Core.Testing
         [Test(Description = "Check playlist runner executes only targeted tests within specified suites")]
         public void TestPlaylistRunnerExecutesOnlyTargetedTestsWithinSpecifiedSuites()
         {
-            Assert.That(runner.Outcome.SuitesOutcomes[0].TestsOutcomes.Count, Is.EqualTo(2));
+            Assert.That(runner.Outcome.SuitesOutcomes[0].TestsOutcomes.Count, Is.EqualTo(3));
             Assert.That(runner.Outcome.SuitesOutcomes[0].TestsOutcomes[0].Title, Is.EqualTo("Test2-1"));
-            Assert.That(runner.Outcome.SuitesOutcomes[0].TestsOutcomes[1].Title, Is.EqualTo("Test2-3"));
+            Assert.That(runner.Outcome.SuitesOutcomes[0].TestsOutcomes[1].Title, Is.EqualTo("Test2-2"));
+            Assert.That(runner.Outcome.SuitesOutcomes[0].TestsOutcomes[2].Title, Is.EqualTo("Test2-3"));
 
             Assert.That(runner.Outcome.SuitesOutcomes[1].Name, Is.EqualTo("Ordered suite 1"));
-            Assert.That(runner.Outcome.SuitesOutcomes[1].TestsOutcomes.Count, Is.EqualTo(1));
+            Assert.That(runner.Outcome.SuitesOutcomes[1].TestsOutcomes.Count, Is.EqualTo(2));
             Assert.That(runner.Outcome.SuitesOutcomes[1].TestsOutcomes[0].Title, Is.EqualTo("Test1-1"));
         }
 

@@ -9,6 +9,9 @@ namespace Unicorn.UI.Web
     /// <summary>
     /// Provides ability to take web browser screenshots (works on both UI and headless modes).
     /// </summary>
+    
+
+    /// TODO: make this aware of threads, so file name would inicate thread
     public class WebScreenshotTaker
     {
         private const int MaxLength = 250;
