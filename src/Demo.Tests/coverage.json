@@ -3,7 +3,7 @@
 	"modules": [
 		{
 			"name": "Web",
-			"features": ["Celestia", "Ebay"]
+			"features": [ "Web. Hello world", "Web. Samples" ]
 		},
 		{
 			"name": "Win32",
@@ -11,11 +11,11 @@
 		},
 		{
 			"name": "Android",
-			"features": ["Dialer"]
+			"features": [ "Android Dialer" ]
 		},
 		{
 			"name": "iOS",
-			"features": ["iOS.Dialer"]
+			"features": ["iOS Dialer"]
 		}
 	]
 }

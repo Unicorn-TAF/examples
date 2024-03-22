@@ -1,5 +1,6 @@
 ﻿using Demo.Charmap;
 using Demo.Tests.Base;
+using Demo.Tests.Metadata;
 using System.Collections.Generic;
 using Unicorn.Taf.Core.Testing;
 using Unicorn.Taf.Core.Testing.Attributes;
@@ -15,9 +16,10 @@ namespace Demo.Tests.Desktop
     /// It's possible to specify any number of suite tags and metadata.
     /// </summary>
     [Suite("Charmap Advanced View")]
-    [Tag("Desktop"), Tag("Charmap"), Tag("Charmap.AdvancedView")]
-    [Metadata(key: "Description", value: "Tests for Charmap Advanced View controls behavior")]
-    [Metadata(key: "Specs link", value: "https://support.microsoft.com/en-us/help/315684/how-to-use-special-characters-in-windows-documents")]
+    [Tag(Features.Desktop), Tag(Features.Charmap), Tag("Charmap. Advanced View")]
+    [Metadata("Description", "Tests for Charmap Advanced View controls behavior")]
+    [Metadata("Specs link", 
+        "https://support.microsoft.com/en-us/help/315684/how-to-use-special-characters-in-windows-documents")]
     public class SuiteCharmapAdvancedView : BaseTestSuite
     {
         private CharmapApp Charmap => CharmapApp.Charmap;
@@ -43,17 +45,16 @@ namespace Demo.Tests.Desktop
         [BeforeSuite]
         public void ClassInit()
         {
-            Do.UI.CharMap.StartApplication();
-            Do.UI.CharMap.SelectFont("Cambria");
-            Do.UI.CharMap.SetAdvancedView(true);
+            Do.CharMap.StartApplication();
+            Do.CharMap.SelectFont("Cambria");
+            Do.CharMap.SetAdvancedView(true);
         }
 
         /// <summary>
         /// Example of test with execution order specified.
         /// </summary>
         [Order(1)]
-        [Author("Vitaliy Dobriyan")]
-        [Category("Smoke")]
+        [Author(Authors.JBloggs)]
         [Test("Check 'Advanced View' dropdowns default values")]
         public void TestFontDropdownDefaultState()
         {
@@ -69,12 +70,12 @@ namespace Demo.Tests.Desktop
         /// <param name="matcher1">2nd DataSet parameter</param>
         /// <param name="matcher2">3rd DataSet parameter</param>
         [Order(2)]
-        [Author("Vitaliy Dobriyan")]
+        [Author(Authors.JBloggs)]
         [Test("Check 'Advanced View' section controls enabled state")]
         [TestData(nameof(GetFontsData))]
         public void TestAdvancedViewSectionControlsEnabledState(string font, TypeSafeMatcher<IControl> matcher1, TypeSafeMatcher<IControl> matcher2)
         {
-            Do.UI.CharMap.SelectFont(font);
+            Do.CharMap.SelectFont(font);
             Do.Assertion.AssertThat(Charmap.Window.DropdownCharacterSet, matcher1);
             Do.Assertion.AssertThat(Charmap.Window.DropdownGroupBy, matcher2);
             Do.Assertion.AssertThat(Charmap.Window.ButtonSearch, Is.Not(UI.Control.Enabled()));
@@ -85,6 +86,6 @@ namespace Demo.Tests.Desktop
         /// </summary>
         [AfterSuite]
         public void ClassTearDown() =>
-            Do.UI.CharMap.CloseApplication();
+            Do.CharMap.CloseApplication();
     }
 }

@@ -5,12 +5,17 @@ using Demo.AndroidDialer;
 using Demo.Tests.Base;
 using Unicorn.UI.Core.PageObject;
 using Unicorn.Taf.Core.Verification.Matchers;
+using Demo.Tests.Metadata;
 
 namespace Demo.Tests.Android
 {
-    //[Disabled("Android emulator is not configured")]
+    /// <summary>
+    /// Example of disabled test suite, it coul be done usind <see cref="DisabledAttribute"/>. 
+    /// (Disabled suite means that all it's tests will not be executed, but they're still discoverable and can be collected in stats)
+    /// </summary>
+    [Disabled("Android emulator is not configured")]
     [Suite("Tests Android dialer application")]
-    [Tag("Android"), Tag("Dialer"), Tag("Dialer.Dialpad")]
+    [Tag(Features.Android), Tag(Features.Android), Tag("Dialer. Dialpad")]
     [Metadata(key: "Description", value: "Suite with tests for android Dialer app")]
     [Metadata(key: "Target device", value: "Android emulator")]
     [Metadata(key: "API version", value: "v25")]
@@ -20,34 +25,39 @@ namespace Demo.Tests.Android
 
         [BeforeTest]
         public void TestInit() =>
-            dialer = Do.UI.Android.OpenDialer();
+            dialer = Do.Android.OpenDialer();
 
-        [Author("Vitaliy Dobriyan")]
-        [Category("Smoke")]
+        [Author(Authors.RLingens)]
+        [Category(Categories.Smoke)]
         [Test("Check dialpad button")]
         public void TestDialpadButton()
         {
             Do.Assertion.AssertThat(dialer.AppFrame.DialPadButton, UI.Control.Visible());
         }
 
-        [Author("Vitaliy Dobriyan")]
-        [Category("Smoke")]
+        [Author(Authors.RLingens)]
+        [Category(Categories.Smoke)]
         [Test("Check ability to type call number")]
         public void TestAbilityToTypeCallNumber()
         {
-            Do.UI.Android.OpenDialpad();
-            Do.UI.Android.TapNumber("#");
-            Do.UI.Android.TapNumber("1");
-            Do.UI.Android.TapNumber("2");
-            Do.UI.Android.TapNumber("3");
+            Do.Android.OpenDialpad();
+            Do.Android.TapNumber("#");
+            Do.Android.TapNumber("1");
+            Do.Android.TapNumber("2");
+            Do.Android.TapNumber("3");
             Do.Assertion.AssertThat(dialer.AppFrame.DialPad.NumberText, UI.Control.HasText("#123"));
         }
 
-        [Author("Vitaliy Dobriyan")]
+        /// <summary>
+        /// Example of disabled test, it coul be done usind <see cref="DisabledAttribute"/>. 
+        /// (The test will not be executed, but it's still discoverable and can be collected in stats)
+        /// </summary>
+        [Disabled("Disable reason")]
+        [Author(Authors.RLingens)]
         [Test("Check calls history")]
         public void TestCallsHistory()
         {
-            Do.UI.Android.OpenCallsHistory();
+            Do.Android.OpenCallsHistory();
             Do.Assertion.AssertThat(
                 dialer.AppFrame.CallsHistory.EmptyListIcon.ExistsInPageObject(), 
                 Is.EqualTo(true));
@@ -55,6 +65,6 @@ namespace Demo.Tests.Android
 
         [AfterTest]
         public void TestCleanup() =>
-            Do.UI.Android.CloseDialer();
+            Do.Android.CloseDialer();
     }
 }

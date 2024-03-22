@@ -4,6 +4,7 @@ using Unicorn.Taf.Core.Testing.Attributes;
 using Unicorn.UI.Core.Matchers;
 using Demo.Charmap;
 using Demo.Tests.Base;
+using Demo.Tests.Metadata;
 
 namespace Demo.Tests.Desktop
 {
@@ -13,9 +14,10 @@ namespace Demo.Tests.Desktop
     /// It's possible to specify any number of suite tags and metadata.
     /// </summary>
     [Suite("Charmap Fonts dropdown")]
-    [Tag("Desktop"), Tag("Charmap"), Tag("Charmap.Fonts")]
-    [Metadata(key: "Description", value: "Tests for Charmap fonts dropdown functionality")]
-    [Metadata(key: "Specs link", value: "https://support.microsoft.com/en-us/help/315684/how-to-use-special-characters-in-windows-documents")]
+    [Tag(Features.Desktop), Tag(Features.Charmap), Tag("Charmap. Fonts")]
+    [Metadata("Description", "Tests for Charmap fonts dropdown functionality")]
+    [Metadata("Specs link", 
+        "https://support.microsoft.com/en-us/help/315684/how-to-use-special-characters-in-windows-documents")]
     public class SuiteCharmapFonts : BaseTestSuite
     {
         private CharmapApp Charmap => CharmapApp.Charmap;
@@ -40,13 +42,12 @@ namespace Demo.Tests.Desktop
         /// </summary>
         [BeforeSuite]
         public void ClassInit() =>
-            Do.UI.CharMap.StartApplication();
+            Do.CharMap.StartApplication();
 
         /// <summary>
         /// Example of simple test with specified category.
         /// </summary>
-        [Author("Vitaliy Dobriyan")]
-        [Category("Smoke")]
+        [Author(Authors.JBloggs)]
         [Test("Check 'Font' dropdown default state")]
         public void TestFontDropdownDefaultState()
         {
@@ -59,13 +60,13 @@ namespace Demo.Tests.Desktop
         /// Number of parameters should be the same as number of items in <see cref="DataSet"/> (DataSet name is not considered)
         /// </summary>
         /// <param name="font">1st DataSet parameter</param>
-        [Author("Vitaliy Dobriyan")]
-        [Category("Smoke")]
+        [Author(Authors.JBloggs)]
+        [Category(Categories.Smoke)]
         [Test("Check 'Font' dropdown ability to select")]
         [TestData(nameof(GetFontsData))]
         public void TestFontDropdownAbilityToSelect(string font)
         {
-            Do.UI.CharMap.SelectFont(font);
+            Do.CharMap.SelectFont(font);
             Do.Assertion.AssertThat(Charmap.Window.DropdownFonts, UI.Dropdown.HasSelectedValue(font));
         }
 
@@ -74,6 +75,6 @@ namespace Demo.Tests.Desktop
         /// </summary>
         [AfterSuite]
         public void ClassTearDown() =>
-            Do.UI.CharMap.CloseApplication();
+            Do.CharMap.CloseApplication();
     }
 }

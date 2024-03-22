@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Demo.Celestia
+namespace Demo.WebModule
 {
     /// <summary>
     /// Config with website timeouts.
@@ -10,6 +10,6 @@ namespace Demo.Celestia
         /// <summary>
         /// Gets timeout for pages load.
         /// </summary>
-        internal static TimeSpan PageLoadTimeout { get; } = TimeSpan.FromSeconds(15);
+        internal static TimeSpan PageLoadTimeout { get; } = TimeSpan.FromSeconds(10);
     }
 }

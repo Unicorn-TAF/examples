@@ -25,11 +25,11 @@ namespace Demo.Tests.Base
         /// <summary>
         /// Gets entry point for steps with bug
         /// </summary>
-        /// <param name="bug">bug id string</param>
+        /// <param name="bugId">bug id string</param>
         /// <returns>Steps entry point</returns>
-        protected Steps Bug(string bug)
+        protected Steps FailsBy(string bugId)
         {
-            this.CurrentStepBug = bug;
+            this.CurrentStepBug = bugId;
             return _steps.Value;
         }
     }

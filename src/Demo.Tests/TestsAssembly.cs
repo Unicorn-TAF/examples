@@ -15,7 +15,7 @@ namespace Demo.Tests
     public class TestsAssembly
     {
         private static AllureReporterInstance reporter;
-        ////private static ReportPortalReporterInstance rpReporter;
+        //private static ReportPortalReporterInstance rpReporter;
         private static WinScreenshotTaker screenshotter;
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Demo.Tests
 
             // Initialize built-in report portal reporter with automatic subscription to all testing events.
             // ReportPortal.config.json should exist in binaries directory.
-            ////rpReporter = new ReportPortalReporterInstance();
+            //rpReporter = new ReportPortalReporterInstance();
         }
 
         /// <summary>
@@ -58,12 +58,12 @@ namespace Demo.Tests
             reporter.Dispose();
 
             // Unsubscribe report portal reporter from unicorn events.
-            ////rpReporter.Dispose();
+            //rpReporter.Dispose();
 #if NETFRAMEWORK
             // unsubscribing screenshotter from unicorn events.
             screenshotter.UnsubscribeFromTafEvents();
 #endif
-            reporter = null;
+            //reporter = null;
             screenshotter = null;
         }
     }

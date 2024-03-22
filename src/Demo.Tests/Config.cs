@@ -16,6 +16,6 @@ namespace Demo.Tests
 
         public string TestsDir { get; } =  Path.GetDirectoryName(new Uri(typeof(Config).Assembly.Location).LocalPath);
 
-        public string CelestiaUrl { get; } = "https://celestia.space";
+        public string WebsiteUrl { get; } = "https://unicorn-taf.github.io/test-ui-apps.html";
     }
 }

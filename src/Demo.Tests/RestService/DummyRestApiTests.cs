@@ -1,4 +1,5 @@
 ﻿using Demo.Tests.Base;
+using Demo.Tests.Metadata;
 using System.Net;
 using System.Net.Http;
 using Unicorn.Backend.Matchers;
@@ -14,13 +15,13 @@ namespace Demo.Tests.RestService
     /// It's possible to specify any number of suite tags and metadata.
     /// </summary>
     [Suite("Dummy Rest Api tests")]
-    [Tag("Rest"), Tag("DummyApi")]
+    [Tag(Features.Api), Tag(Features.RestApi), Tag("Dummy Api")]
     [Metadata(key: "Description", value: "Tests for dummy rest api functionality")]
     [Metadata(key: "Api link", value: "http://dummy.restapiexample.com")]
     public class DummyRestApiTests : BaseTestSuite
     {
-        [Test]
-        [Author("Vitaliy Dobriyan")]
+        [Test("Get user by ID")]
+        [Author(Authors.ASmithee)]
         public void GetUserByIdTest()
         {
             RestResponse userResponse = Do.DummyRestApi.GetUser(2);
@@ -31,8 +32,8 @@ namespace Demo.Tests.RestService
                 .AssertChain();
         }
 
-        [Test]
-        [Author("Vitaliy Dobriyan")]
+        [Test("Get users list")]
+        [Author(Authors.ASmithee)]
         public void GetUsersTest()
         {
             RestResponse userResponse = Do.DummyRestApi.GetUsersPage(2);
@@ -47,8 +48,8 @@ namespace Demo.Tests.RestService
                 .AssertChain();
         }
 
-        [Test]
-        [Author("Vitaliy Dobriyan")]
+        [Test("Check call to non-existing endpoint returns BadRequest")]
+        [Author(Authors.ASmithee)]
         public void SendRequestToNonExistingEndpoint()
         {
             RestResponse response = Do.DummyRestApi

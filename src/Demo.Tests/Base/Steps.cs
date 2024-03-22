@@ -1,4 +1,7 @@
-﻿using Demo.DummyRestApi;
+﻿using Demo.AndroidDialer.Steps;
+using Demo.WebModule.Steps;
+using Demo.Charmap.Steps;
+using Demo.DummyRestApi;
 using System;
 using Unicorn.Taf.Core.Steps;
 
@@ -6,14 +9,20 @@ namespace Demo.Tests.Base
 {
     public class Steps
     {
-        private readonly Lazy<StepsUI> _ui = new Lazy<StepsUI>();
         private readonly Lazy<AssertionSteps> _assertion = new Lazy<AssertionSteps>();
         private readonly Lazy<DummyRestApiSteps> _dummyRestApi = new Lazy<DummyRestApiSteps>();
-
-        public StepsUI UI => _ui.Value;
+        private readonly Lazy<StepsCharMap> _charmap = new Lazy<StepsCharMap>();
+        private readonly Lazy<TestWebsiteSteps> _website = new Lazy<TestWebsiteSteps>();
+        private readonly Lazy<StepsAndroidDialer> _android = new Lazy<StepsAndroidDialer>();
 
         public AssertionSteps Assertion => _assertion.Value;
 
         public DummyRestApiSteps DummyRestApi => _dummyRestApi.Value;
+
+        public StepsCharMap CharMap => _charmap.Value;
+
+        public TestWebsiteSteps Website => _website.Value;
+
+        public StepsAndroidDialer Android => _android.Value;
     }
 }
