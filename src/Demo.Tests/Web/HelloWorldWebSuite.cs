@@ -83,17 +83,6 @@ namespace Demo.Tests.Web
         }
 
         /// <summary>
-        /// Example of parameterized test. The test should have <see cref="TestDataAttribute"/> 
-        /// and the same number of parameters as in DataSets in test data.
-        /// </summary>
-        [Author(Authors.JDoe)]
-        [Test("Test which always fails")]
-        public void FailingTest()
-        {
-            Do.Assertion.AssertThat(HelloWorld.NameInput, UI.TextInput.HasValue("Some name"));
-        }
-
-        /// <summary>
         /// Actions executed after each test.
         /// It's possible to specify:<br/>
         ///  - whether it needs to be run in case of test fail or not<br/>

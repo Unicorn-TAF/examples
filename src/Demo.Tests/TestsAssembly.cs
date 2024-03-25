@@ -31,6 +31,11 @@ namespace Demo.Tests
             // Set trace logging level.
             Logger.Level = LogLevel.Trace;
 
+            // It's possible to customize TAF configuration in assembly init. 
+            // Current setting controls behavior of dependent tests in case when referenced test is failed
+            // (tests could be failed, skipped or not run)
+            Unicorn.Taf.Core.Config.DependentTests = Unicorn.Taf.Core.TestsDependency.Skip;
+
 #if NETFRAMEWORK
             // Initialize built-in screenshotter with automatic subscription to test fail event.
             var screenshotsDir = Path.Combine(Config.Instance.TestsDir, "Screenshots");

@@ -23,8 +23,13 @@ namespace Demo.WebModule.Steps
         public void InputEmail(string email) =>
             _page.EmailInput.SetValue(email);
 
+        // If it's necessary to NOT to log sensitive info, it's better to call Instance from an element when sending keys.
         [Step("Input password")]
         public void InputPassword(string password) =>
-            _page.PasswordInput.Instance.SendKeys(password);
+            _page.PasswordInput.Instance.SendKeys(password); 
+
+        [Step("Sign in")]
+        public void SignIn() =>
+            _page.SignInButton.Click();
     }
 }
