@@ -4,15 +4,16 @@ using Demo.WebModule;
 using Demo.WebModule.Ui;
 using Unicorn.Taf.Core.Testing;
 using Unicorn.Taf.Core.Testing.Attributes;
+using Unicorn.Taf.Core.Verification;
 using Unicorn.Taf.Core.Verification.Matchers;
 using Unicorn.UI.Core.Matchers;
 using Unicorn.UI.Web;
 
-namespace Demo.Tests.Web
+namespace Demo.Tests.Scenarios.Web
 {
     [Suite("Sample elements failing suite")]
-    [Tag(Features.Web), Tag(Features.Samples)]
-    [Metadata("Description", 
+    [Tag(Platforms.Web), Tag(Platforms.Apps.Samples)]
+    [Metadata("Description",
         "Example of test suite with dependent tests where main test is failing")]
     [Metadata("Site link", "https://unicorn-taf.github.io/test-ui-apps.html")]
     public class SampleElementsFailingSuite : BaseTestSuite
@@ -29,10 +30,12 @@ namespace Demo.Tests.Web
         }
 
         /// <summary>
-        /// Example of test predecessor for other tests.
+        /// Example of test predecessor for other tests (which fails and should affect dependent tests execution).
+        /// The test is marked with <see cref="BugAttribute"/>. Besides mandatory ID it's possible to specify also
+        /// some specific conditions when one wants to consider the bug (typer of exception or part of error message)
         /// </summary>
         [Author(Authors.JDoe)]
-        [Bug("12345")]
+        [Bug("1", typeof(AssertionException), "But: was not visible")]
         [Test("Test which always fails")]
         public void FailingTest()
         {

@@ -6,7 +6,7 @@ using Unicorn.Taf.Core.Testing.Attributes;
 using Unicorn.Taf.Core.Verification.Matchers;
 using Unicorn.UI.Core.Matchers;
 
-namespace Demo.Tests.Desktop
+namespace Demo.Tests.Scenarios.Desktop
 {
     /// <summary>
     /// Desktop application test suite example.
@@ -14,9 +14,9 @@ namespace Demo.Tests.Desktop
     /// It's possible to specify any number of suite tags and metadata.
     /// </summary>
     [Suite("Charmap Select/Copy")]
-    [Tag(Features.Desktop), Tag(Features.Charmap), Tag("Charmap. Select/Copy")]
+    [Tag(Platforms.Win), Tag(Platforms.Apps.Charmap), Tag(Features.CharmapSelectCopy)]
     [Metadata("Description", "Tests for Charmap select/copy functionality")]
-    [Metadata("Specs link", 
+    [Metadata("Specs link",
         "https://support.microsoft.com/en-us/help/315684/how-to-use-special-characters-in-windows-documents")]
     public class SuiteCharmapSelectCopy : BaseTestSuite
     {

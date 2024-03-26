@@ -1,17 +1,16 @@
 ﻿{
   "enabled": true,
   "server": {
-    "url": "<https://report-portal-uri/api/v1/>",
-    "project": "default_project",
+    "url": "https://report-portal-uri/api/v1/",
+    "project": "demo-project",
     "authentication": {
-      "uuid": "<uuid>"
+      "uuid": "uuid-value"
     }
-    /* "proxy": "http://host:port" */
   },
   "launch": {
     "name": "Unicorn Demo Launch",
-    "description": "launch description",
-    "debugMode": true,
-    "tags": [ "tag1", "tag2" ]
+    "description": "This is demo launch of tests based on Unicorn.TAF",
+    "debugMode": false,
+    "tags": [ "web", "desktop", "api", "android" ]
   }
 }

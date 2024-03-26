@@ -10,7 +10,7 @@ using Unicorn.UI.Core.Controls;
 using Unicorn.UI.Core.Matchers;
 using Unicorn.UI.Web;
 
-namespace Demo.Tests.Web
+namespace Demo.Tests.Scenarios.Web
 {
     /// <summary>
     /// Web test suite example. The class should inherit <see cref="TestSuite"/> and have <see cref="SuiteAttribute"/>.
@@ -19,8 +19,8 @@ namespace Demo.Tests.Web
     /// Suite tags allow to use parameterized targeted runs: suites are selected based on specific tags presence.
     /// </summary>
     [Suite("Hello world web tests")]
-    [Tag(Features.Web), Tag(Features.HelloWorld)]
-    [Metadata("Description", 
+    [Tag(Platforms.Web), Tag(Platforms.Apps.HelloWorld)]
+    [Metadata("Description",
         "Example of test suite with parameterized test. Suite checks functionality of hello world app")]
     [Metadata("Site link", "https://unicorn-taf.github.io/test-ui-apps.html")]
     public class HelloWorldWebSuite : BaseTestSuite

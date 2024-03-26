@@ -9,7 +9,7 @@ using Unicorn.Taf.Core.Verification.Matchers;
 using Unicorn.UI.Core.Matchers;
 using Unicorn.UI.Web;
 
-namespace Demo.Tests.Web
+namespace Demo.Tests.Scenarios.Web
 {
     /// <summary>
     /// Example of parameterized test suite (the whole suite is run for all entries in data set), 
@@ -18,8 +18,8 @@ namespace Demo.Tests.Web
     /// </summary>
     [Parameterized]
     [Suite("Test website default state tests")]
-    [Tag(Features.Web), Tag(Features.HelloWorld), Tag(Features.Samples)]
-    [Metadata("Description", 
+    [Tag(Platforms.Web), Tag(Platforms.Apps.HelloWorld), Tag(Platforms.Apps.Samples)]
+    [Metadata("Description",
         "Example of parameterized test suite with ordered tests. Suite checks default state of controls of the test website")]
     [Metadata("Site link", "https://unicorn-taf.github.io/test-ui-apps.html")]
     public class TestWebsiteDefaultsSuite : BaseTestSuite

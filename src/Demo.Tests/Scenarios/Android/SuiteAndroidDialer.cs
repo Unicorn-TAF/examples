@@ -7,7 +7,7 @@ using Unicorn.UI.Core.PageObject;
 using Unicorn.Taf.Core.Verification.Matchers;
 using Demo.Tests.Metadata;
 
-namespace Demo.Tests.Android
+namespace Demo.Tests.Scenarios.Android
 {
     /// <summary>
     /// Example of disabled test suite, it coul be done usind <see cref="DisabledAttribute"/>. 
@@ -15,7 +15,7 @@ namespace Demo.Tests.Android
     /// </summary>
     [Disabled("Android emulator is not configured")]
     [Suite("Tests Android dialer application")]
-    [Tag(Features.Android), Tag(Features.Android), Tag("Dialer. Dialpad")]
+    [Tag(Platforms.Android), Tag(Platforms.Apps.Dialer)]
     [Metadata(key: "Description", value: "Suite with tests for android Dialer app")]
     [Metadata(key: "Target device", value: "Android emulator")]
     [Metadata(key: "API version", value: "v25")]
@@ -59,7 +59,7 @@ namespace Demo.Tests.Android
         {
             Do.Android.OpenCallsHistory();
             Do.Assertion.AssertThat(
-                dialer.AppFrame.CallsHistory.EmptyListIcon.ExistsInPageObject(), 
+                dialer.AppFrame.CallsHistory.EmptyListIcon.ExistsInPageObject(),
                 Is.EqualTo(true));
         }
 

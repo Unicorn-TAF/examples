@@ -7,7 +7,7 @@ using Unicorn.Backend.Services.RestService;
 using Unicorn.Taf.Core.Testing;
 using Unicorn.Taf.Core.Testing.Attributes;
 
-namespace Demo.Tests.RestService
+namespace Demo.Tests.Scenarios.RestService
 {
     /// <summary>
     /// Rest web service test suite example.
@@ -15,7 +15,7 @@ namespace Demo.Tests.RestService
     /// It's possible to specify any number of suite tags and metadata.
     /// </summary>
     [Suite("Dummy Rest Api tests")]
-    [Tag(Features.Api), Tag(Features.RestApi), Tag("Dummy Api")]
+    [Tag(Platforms.Api), Tag(Platforms.Apps.DummyApi)]
     [Metadata(key: "Description", value: "Tests for dummy rest api functionality")]
     [Metadata(key: "Api link", value: "http://dummy.restapiexample.com")]
     public class DummyRestApiTests : BaseTestSuite

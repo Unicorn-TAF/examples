@@ -1,4 +1,5 @@
-﻿using System.Drawing.Imaging;
+﻿using Demo.Tests.Handlers;
+using System.Drawing.Imaging;
 using System.IO;
 using Unicorn.AllureAgent;
 using Unicorn.ReportPortalAgent;
@@ -14,8 +15,9 @@ namespace Demo.Tests
     [TestAssembly]
     public class TestsAssembly
     {
-        private static AllureReporterInstance reporter;
-        //private static ReportPortalReporterInstance rpReporter;
+        //private static AllureReporterInstance reporter;
+        private static GitHubBts bts;
+        private static ReportPortalReporterInstance reporter;
         private static WinScreenshotTaker screenshotter;
 
         /// <summary>
@@ -43,13 +45,15 @@ namespace Demo.Tests
             screenshotter.ScribeToTafEvents();
 #endif
 
+            bts = new GitHubBts();
+
             // Initialize built-in allure reporter with automatic subscription to all testing events.
             // allureConfig.json should exist in binaries directory.
-            reporter = new AllureReporterInstance();
+            //reporter = new AllureReporterInstance();
 
             // Initialize built-in report portal reporter with automatic subscription to all testing events.
             // ReportPortal.config.json should exist in binaries directory.
-            //rpReporter = new ReportPortalReporterInstance();
+            reporter = new ReportPortalReporterInstance();
         }
 
         /// <summary>
@@ -59,17 +63,18 @@ namespace Demo.Tests
         [RunFinalize]
         public static void FinalizeRun()
         {
-            // Unsubscribe allure reporter from unicorn events.
+            // Unsubscribe reporter from unicorn events.
             reporter.Dispose();
+            reporter = null;
 
-            // Unsubscribe report portal reporter from unicorn events.
-            //rpReporter.Dispose();
 #if NETFRAMEWORK
             // unsubscribing screenshotter from unicorn events.
             screenshotter.UnsubscribeFromTafEvents();
-#endif
-            //reporter = null;
             screenshotter = null;
+#endif
+
+            bts.Dispose();
+            bts = null;
         }
     }
 }

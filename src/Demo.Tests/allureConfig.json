@@ -1,5 +1,8 @@
 ﻿{
   "allure": {
-    "directory": "D:\\Dev\\Tools\\AT\\allure-2.9.0\\AllureResults"
+    "directory": "allure-results",
+    "links": [
+      "https://github.com/Unicorn-TAF/examples/issues/{issue}"
+    ]
   }
 }
