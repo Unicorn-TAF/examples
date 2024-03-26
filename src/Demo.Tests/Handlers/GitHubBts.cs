@@ -7,6 +7,8 @@ namespace Demo.Tests.Handlers
 {
     internal class GitHubBts : IDisposable
     {
+        private const string BaseUrl = "https://github.com/Unicorn-TAF/examples/issues/";
+
         /// <summary>
         /// Initialize github issues handler (suppose our example product issues are stored there).
         /// Consider scenario, that one wants to attach link to defect in case test is failed and linked defect is opened.
@@ -36,11 +38,14 @@ namespace Demo.Tests.Handlers
                 // if the bug meets all conditions, adding it to test outcome
                 if (validBug)
                 {
+                    // Generate nice comment with link to a bug for report portal
+                    string comment = $"[Issue on GitHub]({BaseUrl}{bugAttribute.Bug})";
+
                     // using Defect object here, need to specify mandatory ID and defect type
                     // (for example ReportPortal considers type field in defects categorization),
                     // also some comment could be assigned.
                     // Here is used "AB" type which is default type for automation bugs in ReportPortal
-                    test.Outcome.Defect = new Defect(bugAttribute.Bug, "ab001", "The fail is expected");
+                    test.Outcome.Defect = new Defect(bugAttribute.Bug, "ab001", comment);
                 }
             }
         }
