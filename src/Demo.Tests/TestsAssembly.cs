@@ -15,9 +15,9 @@ namespace Demo.Tests
     [TestAssembly]
     public class TestsAssembly
     {
-        //private static AllureReporterInstance reporter;
+        private static AllureReporterInstance reporter;
         private static GitHubBts bts;
-        private static ReportPortalReporterInstance reporter;
+        //private static ReportPortalReporterInstance reporter;
         private static WinScreenshotTaker screenshotter;
 
         /// <summary>
@@ -49,11 +49,11 @@ namespace Demo.Tests
 
             // Initialize built-in allure reporter with automatic subscription to all testing events.
             // allureConfig.json should exist in binaries directory.
-            //reporter = new AllureReporterInstance();
+            reporter = new AllureReporterInstance();
 
             // Initialize built-in report portal reporter with automatic subscription to all testing events.
             // ReportPortal.config.json should exist in binaries directory.
-            reporter = new ReportPortalReporterInstance();
+            //reporter = new ReportPortalReporterInstance();
         }
 
         /// <summary>
