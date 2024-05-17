@@ -3,19 +3,23 @@
 	"modules": [
 		{
 			"name": "Web",
-			"features": [ "Web. Hello world", "Web. Samples" ]
+			"features": [ "platform:web" ]
 		},
 		{
-			"name": "Win32",
-			"features": [ "Charmap", "Calculator" ]
+			"name": "Windows",
+			"features": [ "platform:win", "Calculator" ]
 		},
 		{
 			"name": "Android",
-			"features": [ "Android Dialer" ]
+			"features": [ "platform:android" ]
 		},
 		{
 			"name": "iOS",
-			"features": ["iOS Dialer"]
+			"features": [ "platform:ios" ]
+		},
+		{
+			"name": "API",
+			"features": [ "platform:api" ]
 		}
 	]
 }
