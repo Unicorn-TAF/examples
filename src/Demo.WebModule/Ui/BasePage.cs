@@ -1,11 +1,11 @@
 ﻿using Demo.WebModule.Ui.Controls;
-using OpenQA.Selenium;
 using Unicorn.UI.Core.Driver;
 using Unicorn.UI.Core.PageObject;
 using Unicorn.UI.Core.PageObject.By;
 using Unicorn.UI.Core.Synchronization;
 using Unicorn.UI.Core.Synchronization.Conditions;
 using Unicorn.UI.Web.Controls;
+using Unicorn.UI.Web.Driver;
 using Unicorn.UI.Web.PageObject;
 
 namespace Demo.WebModule.Ui
@@ -19,20 +19,20 @@ namespace Demo.WebModule.Ui
     public abstract class BasePage : WebPage
     {
         /// <summary>
-        /// Creating page instance with <see cref="IWebDriver"/> context and specified relative url and title.
+        /// Creating page instance with <see cref="WebDriver"/> context and specified relative url and title.
         /// </summary>
         /// <param name="driver">Selenium WebDriver instance</param>
         /// <param name="subUrl">page relative url</param>
         /// <param name="title">page title</param>
-        public BasePage(IWebDriver driver, string subUrl, string title) : base(driver, subUrl, title)
+        public BasePage(WebDriver driver, string subUrl, string title) : base(driver, subUrl, title)
         {
         }
 
         /// <summary>
-        /// Creating page instance with <see cref="IWebDriver"/> context.
+        /// Creating page instance with <see cref="WebDriver"/> context.
         /// </summary>
         /// <param name="driver">Selenium WebDriver instance</param>
-        public BasePage(IWebDriver driver) : base(driver)
+        public BasePage(WebDriver driver) : base(driver)
         {
         }
 

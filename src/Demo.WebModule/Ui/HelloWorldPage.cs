@@ -3,6 +3,7 @@ using Unicorn.UI.Core.PageObject;
 using Unicorn.UI.Core.PageObject.By;
 using Unicorn.UI.Web.Controls;
 using Unicorn.UI.Web.Controls.Typified;
+using Unicorn.UI.Web.Driver;
 using Unicorn.UI.Web.PageObject;
 using Unicorn.UI.Web.PageObject.Attributes;
 
@@ -21,10 +22,10 @@ namespace Demo.WebModule.Ui
     public class HelloWorldPage : BasePage
     {
         /// <summary>
-        /// Creating page instance with <see cref="OpenQA.Selenium.IWebDriver"/> context.
+        /// Creating page instance with <see cref="WebDriver"/> context.
         /// </summary>
         /// <param name="driver">Selenium WebDriver instance</param>
-        public HelloWorldPage(OpenQA.Selenium.IWebDriver driver) : base(driver)
+        public HelloWorldPage(WebDriver driver) : base(driver)
         {
         }
 
@@ -43,8 +44,7 @@ namespace Demo.WebModule.Ui
         /// Controls implementing predefined controls interfaces allow to apply type specific matchers 
         /// to make tests and assertions easier and more readable.
         /// </summary>
-        [Name("Name input")]
-        [ById("name")]
+        [Name("Name input"), ById("name")]
         public TextInput NameInput { get; set; }
 
         /// <summary>

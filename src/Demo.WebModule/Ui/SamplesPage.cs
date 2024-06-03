@@ -4,6 +4,7 @@ using Unicorn.UI.Core.PageObject;
 using Unicorn.UI.Core.PageObject.By;
 using Unicorn.UI.Web.Controls;
 using Unicorn.UI.Web.Controls.Typified;
+using Unicorn.UI.Web.Driver;
 using Unicorn.UI.Web.PageObject.Attributes;
 
 namespace Demo.WebModule.Ui
@@ -14,16 +15,14 @@ namespace Demo.WebModule.Ui
     [PageInfo("test-ui-apps.html", "Test UI apps | Unicorn.TAF")]
     public class SamplesPage : BasePage
     {
-        public SamplesPage(OpenQA.Selenium.IWebDriver driver) : base(driver)
+        public SamplesPage(WebDriver driver) : base(driver)
         {
         }
 
-        [Name("Email input")]
-        [ById("email")]
+        [Name("Email input"), ById("email")]
         public TextInput EmailInput { get; set; }
 
-        [Name("Password input")]
-        [ById("password")]
+        [Name("Password input"), ById("password")]
         public TextInput PasswordInput { get; set; }
 
         [Name("'Sign in' button")]
@@ -34,8 +33,7 @@ namespace Demo.WebModule.Ui
         [Find(Using.WebXpath, "//ul[@role = 'tablist']/..")]
         public TabsControl TabsControl { get; set; }
 
-        [Name("Accordion control")]
-        [ById("accordion")]
+        [Name("Accordion control"), ById("accordion")]
         public Accordion Accordion { get; set; }
     }
 }
