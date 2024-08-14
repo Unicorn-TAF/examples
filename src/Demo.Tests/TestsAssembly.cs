@@ -16,8 +16,8 @@ namespace Demo.Tests
     public class TestsAssembly
     {
         private static AllureReporterInstance reporter;
-        private static GitHubBts bts;
         //private static ReportPortalReporterInstance reporter;
+        private static GitHubBts bts;
         private static WinScreenshotTaker screenshotter;
 
         /// <summary>

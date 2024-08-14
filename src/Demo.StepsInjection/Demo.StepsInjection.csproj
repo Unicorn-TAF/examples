@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspectInjector" Version="2.6.0" />
+    <PackageReference Include="AspectInjector" Version="2.8.2" />
     <PackageReference Include="Unicorn.Taf.Core" Version="3.3.0" />
   </ItemGroup>
 

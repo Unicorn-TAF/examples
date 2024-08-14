@@ -1,5 +1,6 @@
 ﻿using AspectInjector.Broker;
 using System;
+using System.Reflection;
 using Unicorn.Taf.Core.Steps;
 
 namespace Demo.StepsInjection
@@ -16,16 +17,17 @@ namespace Demo.StepsInjection
         [Advice(Kind.Around, Targets = Target.Method)]
         public object HandleMethod(
             [Argument(Source.Arguments)] object[] arguments,
-            [Argument(Source.Target)] Func<object[], object> method)
+            [Argument(Source.Target)] Func<object[], object> method,
+            [Argument(Source.Metadata)] MethodBase methodBase)
         {
             // calling OnStepStart event before step method execution.
-            StepEvents.CallOnStepStartEvent(method.Method, arguments);
+            StepEvents.CallOnStepStartEvent(methodBase, arguments);
 
             // calling the step itself.
             var result = method(arguments);
 
             //calling OnStepFinish event after step method execution.
-            StepEvents.CallOnStepFinishEvent(method.Method, arguments);
+            StepEvents.CallOnStepFinishEvent(methodBase, arguments);
             return result;
         }
     }
