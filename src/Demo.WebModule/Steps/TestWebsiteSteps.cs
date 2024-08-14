@@ -37,12 +37,12 @@ namespace Demo.WebModule.Steps
             /*
              * Example of how to attach WebDriver to existing opened browser (browser should be started in debug mode)
              */
-            //var options = new ChromeOptions();
+            //var options = new OpenQA.Selenium.Chrome.ChromeOptions();
             //options.DebuggerAddress = "127.0.0.1:9222"; //real debugging port should be specified
-            //var driver = new ChromeDriver(options);
-            //var webDriver = new DesktopWebDriver(driver);
+            //var driver = new OpenQA.Selenium.Chrome.ChromeDriver(options);
+            //var webDriver = new Unicorn.UI.Web.Driver.DesktopWebDriver(driver);
             //website = new TestWebsite(webDriver, siteUrl);
-            
+
             website = new TestWebsite(browser, siteUrl);
 
             website.Open();
