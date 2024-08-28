@@ -5,6 +5,7 @@ using Unicorn.UI.Core.PageObject.By;
 using Unicorn.UI.Core.Synchronization;
 using Unicorn.UI.Core.Synchronization.Conditions;
 using Unicorn.UI.Web.Controls;
+using Unicorn.UI.Web.Controls.Typified;
 using Unicorn.UI.Web.Driver;
 using Unicorn.UI.Web.PageObject;
 
@@ -43,9 +44,9 @@ namespace Demo.WebModule.Ui
         [Find(Using.WebCss, "section[style *= block] h1.heading-separator")]
         public WebControl MainTitle { get; set; }
 
-        [Name("'Switch app' button")]
-        [ById("switchAppLink")]
-        public WebControl SwitchAppButton { get; set; }
+        [Name("'Switch app' toggle")]
+        [Find(Using.WebCss, "label.switch:has([onclick *= onAppSwitch])")]
+        public Checkbox SwitchAppToggle { get; set; }
 
         /// <summary>
         /// Each page object control could have readable name specified through <see cref="NameAttribute"/>. 
@@ -66,5 +67,33 @@ namespace Demo.WebModule.Ui
 
         public void WaitForLoading() =>
             Header.Wait(Until.Visible, Timeouts.PageLoadTimeout);
+
+        public override bool SetCheckbox(string label, bool state)
+        {
+            Checkbox checkbox = Find<Checkbox>(ByLocator.Xpath(".//input[@type='checkbox' and ..//*[. = '" + label + "']]"));
+            bool needToClick = checkbox.Checked != state;
+
+            if (needToClick)
+            {
+                checkbox.JsClick();
+            }
+
+            return needToClick;
+        }
+
+        public override bool SelectRadio(string label)
+        {
+            Radio radio = Find<Radio>(ByLocator.Xpath(".//input[@type='radio' and ..//*[. = '" + label + "']]"));
+
+            if (radio.Selected)
+            {
+                return false;
+            }
+            else
+            {
+                radio.JsClick();
+                return true;
+            }
+        }
     }
 }

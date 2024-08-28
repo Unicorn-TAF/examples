@@ -15,7 +15,7 @@ namespace Demo.Tests.Scenarios.Android
     /// </summary>
     [Disabled("Android emulator is not configured")]
     [Suite("Tests Android dialer application")]
-    [Tag(Platforms.Android), Tag(Platforms.Apps.Dialer)]
+    [Tag(Platforms.Android), Tag(Apps.Dialer)]
     [Metadata(key: "Description", value: "Suite with tests for android Dialer app")]
     [Metadata(key: "Target device", value: "Android emulator")]
     [Metadata(key: "API version", value: "v25")]

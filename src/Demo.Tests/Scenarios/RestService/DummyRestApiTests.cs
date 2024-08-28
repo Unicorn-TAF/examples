@@ -15,7 +15,7 @@ namespace Demo.Tests.Scenarios.RestService
     /// It's possible to specify any number of suite tags and metadata.
     /// </summary>
     [Suite("Dummy Rest Api tests")]
-    [Tag(Platforms.Api), Tag(Platforms.Apps.DummyApi)]
+    [Tag(Platforms.Api), Tag(Apps.DummyApi)]
     [Metadata(key: "Description", value: "Tests for dummy rest api functionality")]
     [Metadata(key: "Api link", value: "http://dummy.restapiexample.com")]
     public class DummyRestApiTests : BaseTestSuite

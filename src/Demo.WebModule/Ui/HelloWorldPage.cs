@@ -35,7 +35,7 @@ namespace Demo.WebModule.Ui
         /// and for each specific place only unique part (label text for example) 
         /// should be specified via <see cref="FindParamAttribute"/>
         /// </summary>
-        [Name("Title dropdown")]
+        [Name("'Title' dropdown")]
         [FindParam("Title")]
         public Controls.Dropdown TitleDropdown { get; set; }
 
@@ -44,7 +44,7 @@ namespace Demo.WebModule.Ui
         /// Controls implementing predefined controls interfaces allow to apply type specific matchers 
         /// to make tests and assertions easier and more readable.
         /// </summary>
-        [Name("Name input"), ById("name")]
+        [Name("'Name' input"), ById("name")]
         public TextInput NameInput { get; set; }
 
         /// <summary>

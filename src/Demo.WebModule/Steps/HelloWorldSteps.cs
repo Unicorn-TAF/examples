@@ -37,5 +37,9 @@ namespace Demo.WebModule.Steps
         [Step("Click 'Say'")]
         public void ClickSay() =>
             _page.SayButton.Click();
+
+        [Step("Close modal window")]
+        public void CloseModalWindow() =>
+            _page.Modal.Close();
     }
 }

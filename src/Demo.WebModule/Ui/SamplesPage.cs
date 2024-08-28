@@ -19,21 +19,45 @@ namespace Demo.WebModule.Ui
         {
         }
 
-        [Name("Email input"), ById("email")]
+        [Name("email input"), ById("email")]
         public TextInput EmailInput { get; set; }
 
-        [Name("Password input"), ById("password")]
+        [Name("password input"), ById("password")]
         public TextInput PasswordInput { get; set; }
 
         [Name("'Sign in' button")]
         [Find(Using.WebCss, "[href = '#signin']")]
         public WebControl SignInButton { get; set; }
 
-        [Name("Tabs control")]
+        [Name("'Welcome' title")]
+        [Find(Using.WebCss, "#contentSection > .text-center > h2")]
+        public WebControl WelcomeTitle { get; set; }
+
+        [Name("'ConsoleRunner' checkbox"), ById("checkbox1")]
+        public Checkbox ConsoleRunnerCheckbox { get; set; }
+
+        [Name("'TestAdapter' checkbox"), ById("checkbox2")]
+        public Checkbox TestAdapterCheckbox { get; set; }
+
+        [Name("'Report Portal' radio"), ById("radio-btn1")]
+        public Radio ReportPortalRadio { get; set; }
+
+        [Name("'Allure Report' radio"), ById("radio-btn2")]
+        public Radio AllureReportlRadio { get; set; }
+
+        [Name("'Supported runtimes' dropdown")]
+        [FindParam("Supported runtimes")]
+        public Controls.Dropdown RuntimesDropdown { get; set; }
+
+        [Name("'Show configuration' button")]
+        [Find(Using.WebCss, "[href= '#displayConfig']")]
+        public WebControl ShowConfigButton { get; set; }
+
+        [Name("tabs control")]
         [Find(Using.WebXpath, "//ul[@role = 'tablist']/..")]
         public TabsControl TabsControl { get; set; }
 
-        [Name("Accordion control"), ById("accordion")]
+        [Name("accordion control"), ById("accordion")]
         public Accordion Accordion { get; set; }
     }
 }

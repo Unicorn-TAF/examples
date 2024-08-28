@@ -16,7 +16,7 @@ namespace Demo.Tests.Scenarios.Desktop
     /// It's possible to specify any number of suite tags and metadata.
     /// </summary>
     [Suite("Charmap Advanced View")]
-    [Tag(Platforms.Win), Tag(Platforms.Apps.Charmap), Tag(Features.CharmapAdvancedView)]
+    [Tag(Platforms.Win), Tag(Apps.Charmap), Tag(Features.CharmapAdvancedView)]
     [Metadata("Description", "Tests for Charmap Advanced View controls behavior")]
     [Metadata("Specs link",
         "https://support.microsoft.com/en-us/help/315684/how-to-use-special-characters-in-windows-documents")]

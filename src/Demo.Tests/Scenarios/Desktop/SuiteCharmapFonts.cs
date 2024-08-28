@@ -14,7 +14,7 @@ namespace Demo.Tests.Scenarios.Desktop
     /// It's possible to specify any number of suite tags and metadata.
     /// </summary>
     [Suite("Charmap Fonts dropdown")]
-    [Tag(Platforms.Win), Tag(Platforms.Apps.Charmap), Tag(Features.CharmapFonts)]
+    [Tag(Platforms.Win), Tag(Apps.Charmap), Tag(Features.CharmapFonts)]
     [Metadata("Description", "Tests for Charmap fonts dropdown functionality")]
     [Metadata("Specs link",
         "https://support.microsoft.com/en-us/help/315684/how-to-use-special-characters-in-windows-documents")]

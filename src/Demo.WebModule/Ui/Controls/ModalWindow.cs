@@ -16,7 +16,7 @@ namespace Demo.WebModule.Ui.Controls
     [Find(Using.Id, "modalWindow")]
     public class ModalWindow : WebControl
     {
-        [Name("Close button"), Find(Using.WebCss, "a.onclick")]
+        [Name("Close button"), Find(Using.WebCss, "a[onclick]")]
         private WebControl closeButton;
 
         [Name("Text content"), ById("caption")]

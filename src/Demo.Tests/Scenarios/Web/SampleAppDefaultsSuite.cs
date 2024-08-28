@@ -8,6 +8,8 @@ using Unicorn.Taf.Core.Testing.Attributes;
 using Unicorn.Taf.Core.Verification.Matchers;
 using Unicorn.UI.Core.Matchers;
 using Unicorn.UI.Web;
+using Demo.Tests.BO;
+using Demo.Tests.TestData;
 
 namespace Demo.Tests.Scenarios.Web
 {
@@ -17,17 +19,15 @@ namespace Demo.Tests.Scenarios.Web
     /// The class should inherit <see cref="TestSuite"/> and have <see cref="SuiteAttribute"/>.
     /// </summary>
     [Parameterized]
-    [Suite("Test website default state tests")]
-    [Tag(Platforms.Web), Tag(Platforms.Apps.HelloWorld), Tag(Platforms.Apps.Samples)]
+    [Suite("Sample app defaults")]
+    [Tag(Platforms.Web), Tag(Apps.Samples)]
     [Metadata("Description",
-        "Example of parameterized test suite with ordered tests. Suite checks default state of controls of the test website")]
+        "Example of parameterized test suite with ordered tests. Suite checks default state of sample app")]
     [Metadata("Site link", "https://unicorn-taf.github.io/test-ui-apps.html")]
-    public class TestWebsiteDefaultsSuite : BaseTestSuite
+    public class SampleAppDefaultsSuite : BaseTestSuite
     {
         private readonly BrowserType _browser;
         private TestWebsite website;
-
-        private HelloWorldPage HelloWorld => website.GetPage<HelloWorldPage>();
 
         private SamplesPage Samples => website.GetPage<SamplesPage>();
 
@@ -35,7 +35,7 @@ namespace Demo.Tests.Scenarios.Web
         /// Constructor for parameterized suite. It should contain the same number of parameters as suite DataSet.
         /// </summary>
         /// <param name="browser">browser type to run suite on (corresponds to same parameter of suite DataSet)</param>
-        public TestWebsiteDefaultsSuite(BrowserType browser)
+        public SampleAppDefaultsSuite(BrowserType browser)
         {
             _browser = browser;
         }
@@ -61,32 +61,42 @@ namespace Demo.Tests.Scenarios.Web
         public void ClassInit() =>
             website = Do.Website.Open(_browser, Config.Instance.WebsiteUrl);
 
-        /// <summary>
-        /// Example of simple test with specified category.
-        /// It's possible to specify tests execution order within a test suite using <see cref="OrderAttribute"/>.
-        /// Tests with higher order will be executed later.
-        /// </summary>
         [Author(Authors.JDoe)]
-        [Category(Categories.Smoke)]
-        [Test("Check hello world page elements")]
-        [Order(0)]
-        public void TestHelloWorldElements() =>
-            Do.Assertion.StartAssertionsChain()
-                .VerifyThat(HelloWorld.Opened, Is.EqualTo(true), "Check Hello World page opened")
-                .VerifyThat(HelloWorld.MainTitle, UI.Control.HasText("Sample \"Hello World\" app"))
-                .VerifyThat(HelloWorld.TitleDropdown, UI.Dropdown.HasSelectedValue("Nothing selected"))
-                .VerifyThat(HelloWorld.NameInput, UI.TextInput.HasValue(string.Empty))
-                .AssertChain();
-
-        [Author(Authors.JDoe)]
-        [Test("Check samples page elements")]
+        [Test("Sample app authentication default layout")]
         [Order(1)]
-        public void TestSamplesElements()
+        public void TestSamplesAuthDefaultLayout()
         {
             Do.Website.SwitchApp();
             Do.Assertion.StartAssertionsChain()
+                .VerifyThat(Samples.Opened, Is.EqualTo(true), "Check Hello World page opened")
                 .VerifyThat(Samples.EmailInput, UI.TextInput.HasValue(string.Empty))
                 .VerifyThat(Samples.PasswordInput, UI.TextInput.HasValue(string.Empty))
+                .AssertChain();
+        }
+
+        [Author(Authors.JDoe)]
+        [Test("Sample app page default layout")]
+        [Order(2)]
+        public void TestSamplesDefaultLayout()
+        {
+            User user = UsersFactory.GetDefaultUser();
+
+            // Precondition to open main page
+
+            Do.Website.Samples.InputEmail(user.Email);
+            Do.Website.Samples.InputPassword(user.Password);
+            Do.Website.Samples.SignIn();
+
+            Do.Assertion.StartAssertionsChain()
+                .VerifyThat(Samples.WelcomeTitle, UI.Control.HasText("Welcome!"))
+                .VerifyThat(Samples.ConsoleRunnerCheckbox, UI.Checkbox.Checked())
+                .VerifyThat(Samples.TestAdapterCheckbox, UI.Checkbox.HasCheckState(false))
+                .VerifyThat(Samples.ReportPortalRadio, Is.Not(UI.Control.Selected()))
+                .VerifyThat(Samples.AllureReportlRadio, UI.Control.Selected())
+                .VerifyThat(Samples.RuntimesDropdown, UI.Dropdown.HasSelectedValue(ConfigData.Runtimes.Net))
+                .VerifyThat(Samples.ShowConfigButton, UI.Control.Visible())
+                .VerifyThat(Samples.TabsControl.ActiveTab, UI.Control.HasText("Unit Tests"))
+                .VerifyThat(Samples.Accordion.ActivePanel.PanelTitle, UI.Control.HasText("Windows GUI"))
                 .AssertChain();
         }
 

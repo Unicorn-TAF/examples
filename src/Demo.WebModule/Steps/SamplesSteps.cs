@@ -31,5 +31,25 @@ namespace Demo.WebModule.Steps
         [Step("Sign in")]
         public void SignIn() =>
             _page.SignInButton.Click();
+
+        [Step("Select '{0}' report")]
+        public void SelectReport(string reportName) =>
+            _page.SelectRadio(reportName);
+
+        [Step("Select '{0}' runner")]
+        public void SelectRunner(string runnerName) =>
+            _page.SetCheckbox(runnerName, true);
+
+        [Step("Deselect '{0}' runner")]
+        public void DeselectRunner(string runnerName) =>
+            _page.SetCheckbox(runnerName, false);
+
+        [Step("Select '{0}' runtime")]
+        public void SelectRuntime(string runtime) =>
+            _page.RuntimesDropdown.Select(runtime);
+
+        [Step("Show configuration")]
+        public void ShowConfiguration() =>
+            _page.ShowConfigButton.Click();
     }
 }

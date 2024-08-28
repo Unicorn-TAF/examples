@@ -51,9 +51,19 @@ namespace Demo.WebModule.Steps
             return website;
         }
 
+        public TestWebsite Open(string siteUrl) =>
+            Open(BrowserType.Chrome, siteUrl);
+
         [Step("Switch app")]
         public void SwitchApp() =>
-            Home.SwitchAppButton.JsClick();
+            Home.SwitchAppToggle.Click();
+
+        [Step("Refresh page")]
+        public void RefreshPage()
+        {
+            website.Driver.SeleniumDriver.Navigate().Refresh();
+            Home.WaitForLoading();
+        }
 
         /// <summary>
         /// Example of step with description (though <see cref="StepAttribute"/>).
