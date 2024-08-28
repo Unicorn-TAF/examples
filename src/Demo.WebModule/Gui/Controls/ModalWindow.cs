@@ -3,7 +3,7 @@ using Unicorn.UI.Core.PageObject;
 using Unicorn.UI.Core.PageObject.By;
 using Unicorn.UI.Web.Controls;
 
-namespace Demo.WebModule.Ui.Controls
+namespace Demo.WebModule.Gui.Controls
 {
     /// <summary>
     /// Example of complex UI control block which could be reused across different places.<br/>

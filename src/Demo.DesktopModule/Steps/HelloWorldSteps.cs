@@ -1,8 +1,8 @@
-﻿using Demo.Charmap.Gui;
+﻿using Demo.DesktopModule.Gui;
 using Demo.StepsInjection;
 using Unicorn.Taf.Core.Steps.Attributes;
 
-namespace Demo.Charmap.Steps
+namespace Demo.DesktopModule.Steps
 {
     /// <summary>
     /// Example of class with steps methods. The class uses custom steps implementation (<see cref="Demo.StepsInjection"/>)

@@ -1,5 +1,5 @@
 ﻿using Demo.StepsInjection;
-using Demo.WebModule.Ui;
+using Demo.WebModule.Gui;
 using Unicorn.Taf.Core.Steps.Attributes;
 using Unicorn.UI.Web;
 

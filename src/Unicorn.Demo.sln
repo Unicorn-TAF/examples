@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.Charmap", "Demo.Charmap\Demo.Charmap.csproj", "{DDC19E8E-ABED-4E1C-81F3-8805ABFF9A9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.DesktopModule", "Demo.DesktopModule\Demo.DesktopModule.csproj", "{DDC19E8E-ABED-4E1C-81F3-8805ABFF9A9C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.WebModule", "Demo.WebModule\Demo.WebModule.csproj", "{D2E77B48-BCAA-457D-92B5-883211870BAC}"
 EndProject

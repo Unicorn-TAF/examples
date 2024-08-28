@@ -1,9 +1,8 @@
-﻿using Demo.Charmap.Gui;
+﻿using Demo.DesktopModule.Gui;
 using Demo.StepsInjection;
-using System.Threading;
 using Unicorn.Taf.Core.Steps.Attributes;
 
-namespace Demo.Charmap.Steps
+namespace Demo.DesktopModule.Steps
 {
     [StepsClass]
     public class SamplesSteps

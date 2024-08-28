@@ -1,4 +1,4 @@
-﻿using Demo.Charmap.Gui;
+﻿using Demo.DesktopModule.Gui;
 using Demo.Tests.BO;
 using Demo.Tests.Metadata;
 using Demo.Tests.TestData;

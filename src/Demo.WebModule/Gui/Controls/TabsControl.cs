@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using UIAutomationClient;
 using Unicorn.UI.Core.Controls;
 using Unicorn.UI.Core.Controls.Interfaces;
+using Unicorn.UI.Core.Driver;
 using Unicorn.UI.Core.PageObject;
-using Unicorn.UI.Core.PageObject.By;
-using Unicorn.UI.Win.Controls;
-using Unicorn.UI.Win.Controls.Typified;
+using Unicorn.UI.Web.Controls;
 
-namespace Demo.Charmap.Gui.Controls
+namespace Demo.WebModule.Gui.Controls
 {
     /// <summary>
     /// Another complex control example (see also <seealso cref="Accordion"/>).<br/>
@@ -16,26 +14,27 @@ namespace Demo.Charmap.Gui.Controls
     /// Controls implementing predefined controls interfaces allow to apply type specific matchers 
     /// to make tests and assertions easier and more readable.
     /// </summary>
-    public class TabsControl : WinControl, IItemSelectable
+    public class TabsControl : WebControl, IItemSelectable
     {
-        public override int UiaType => UIA_ControlTypeIds.UIA_TabControlTypeId;
-
-        public override string ClassName => "TabControl";
-
         /// <summary>
         /// <see cref="IList{T}"/> with controls is also could be a part of page object and is located 
         /// by the same attributes as single controls
         /// </summary>
-        [Name("Tabs list"), ByClass("TabItem")]
-        public IList<TabItem> TabsList { get; set; }
+        [Name("Tabs list")]
+        [Find(Using.WebCss, "ul > li")]
+        public IList<WebControl> TabsList { get; set; }
 
-        public TabItem ActiveTab => TabsList.First(tab => tab.Selected);
+        [Name("Tab content")]
+        [Find(Using.WebCss, ".tab-content")]
+        public WebControl TabContent { get; set; }
+
+        public WebControl ActiveTab => TabsList.First(tab => tab.GetAttribute("class") == "active");
 
         public string SelectedValue => ActiveTab.Text;
 
         public bool Select(string tabName)
         {
-            TabItem tab = TabsList.FirstOrDefault(x => x.Text == tabName);
+            WebControl tab = TabsList.FirstOrDefault(x => x.Text == tabName);
 
             if (tab == null)
             {
@@ -51,5 +50,8 @@ namespace Demo.Charmap.Gui.Controls
 
             return needToSelect;
         }
+
+        public string GetContent() =>
+            TabContent.GetAttribute("innerText");
     }
 }

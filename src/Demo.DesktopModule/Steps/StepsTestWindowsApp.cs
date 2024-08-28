@@ -2,7 +2,7 @@
 using Unicorn.Taf.Core.Steps.Attributes;
 using Unicorn.UI.Core.PageObject;
 
-namespace Demo.Charmap.Steps
+namespace Demo.DesktopModule.Steps
 {
     /// <summary>
     /// Represents high-level steps for application.
@@ -28,7 +28,7 @@ namespace Demo.Charmap.Steps
         /// Example of step with description (though <see cref="StepAttribute"/>).
         /// After subscription to test events it's possible to use attribute for reporting needs for example.
         /// </summary>
-        [Step("Start charmap")]
+        [Step("Start test application")]
         public TestWindowsApp StartApplication()
         {
             _testApp.Start();

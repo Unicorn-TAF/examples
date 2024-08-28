@@ -1,11 +1,11 @@
-﻿using Demo.Charmap.Gui.Controls;
+﻿using Demo.DesktopModule.Gui.Controls;
 using UIAutomationClient;
 using Unicorn.UI.Core.PageObject;
 using Unicorn.UI.Core.PageObject.By;
 using Unicorn.UI.Win.Controls;
 using Unicorn.UI.Win.Controls.Typified;
 
-namespace Demo.Charmap.Gui
+namespace Demo.DesktopModule.Gui
 {
     /// <summary>
     /// Another web page example (see also <seealso cref="HelloWorldPage"/>).

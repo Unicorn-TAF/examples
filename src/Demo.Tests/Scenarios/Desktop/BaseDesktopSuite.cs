@@ -1,4 +1,4 @@
-﻿using Demo.Charmap;
+﻿using Demo.DesktopModule;
 using Demo.DummyRestApi;
 using Demo.Tests.Base;
 using System.IO;

@@ -1,4 +1,4 @@
-﻿using Demo.WebModule.Ui.Controls;
+﻿using Demo.WebModule.Gui.Controls;
 using Unicorn.UI.Core.Driver;
 using Unicorn.UI.Core.PageObject;
 using Unicorn.UI.Core.PageObject.By;
@@ -7,7 +7,7 @@ using Unicorn.UI.Web.Controls.Typified;
 using Unicorn.UI.Web.Driver;
 using Unicorn.UI.Web.PageObject.Attributes;
 
-namespace Demo.WebModule.Ui
+namespace Demo.WebModule.Gui
 {
     /// <summary>
     /// Another web page example (see also <seealso cref="HelloWorldPage"/>).

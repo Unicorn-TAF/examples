@@ -1,5 +1,5 @@
-﻿using Demo.Charmap;
-using Demo.Charmap.Gui;
+﻿using Demo.DesktopModule;
+using Demo.DesktopModule.Gui;
 using Demo.Tests.Base;
 using Demo.Tests.BO;
 using Demo.Tests.Metadata;

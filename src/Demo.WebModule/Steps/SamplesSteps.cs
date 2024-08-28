@@ -1,4 +1,4 @@
-﻿using Demo.WebModule.Ui;
+﻿using Demo.WebModule.Gui;
 using Demo.StepsInjection;
 using Unicorn.Taf.Core.Steps.Attributes;
 

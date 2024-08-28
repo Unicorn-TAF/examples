@@ -17,7 +17,7 @@
     
   <ItemGroup>
     <ProjectReference Include="..\Demo.WebModule\Demo.WebModule.csproj" />
-    <ProjectReference Include="..\Demo.Charmap\Demo.Charmap.csproj" />
+    <ProjectReference Include="..\Demo.DesktopModule\Demo.DesktopModule.csproj" />
     <ProjectReference Include="..\Demo.Dialer\Demo.AndroidDialer.csproj" />
     <ProjectReference Include="..\Demo.DummyRestApi\Demo.DummyRestApi.csproj" />
   </ItemGroup>

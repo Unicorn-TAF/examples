@@ -2,7 +2,7 @@
 using Unicorn.UI.Core.PageObject.By;
 using Unicorn.UI.Win.Controls.Typified;
 
-namespace Demo.Charmap.Gui
+namespace Demo.DesktopModule.Gui
 {
     public class ModalWindow : Window
     {

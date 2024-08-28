@@ -3,7 +3,7 @@ using Unicorn.UI.Core.Driver;
 using Unicorn.UI.Core.PageObject;
 using Unicorn.UI.Web.Controls;
 
-namespace Demo.WebModule.Ui.Controls
+namespace Demo.WebModule.Gui.Controls
 {
     /// <summary>
     /// Example of templated control: the generic locator template (common for different places/ pages) 

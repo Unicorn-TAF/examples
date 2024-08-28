@@ -1,4 +1,4 @@
-﻿using Demo.Charmap.Gui;
+﻿using Demo.DesktopModule.Gui;
 using System;
 using System.Runtime.InteropServices;
 using UIAutomationClient;
@@ -6,7 +6,7 @@ using Unicorn.Taf.Core.Utility.Synchronization;
 using Unicorn.UI.Win.Driver;
 using Unicorn.UI.Win.PageObject;
 
-namespace Demo.Charmap
+namespace Demo.DesktopModule
 {
     /// <summary>
     /// Describes desktop application (TestWindowsApp application).

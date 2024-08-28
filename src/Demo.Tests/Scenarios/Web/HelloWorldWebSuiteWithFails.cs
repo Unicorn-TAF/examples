@@ -1,7 +1,7 @@
 ﻿using Demo.Tests.BO;
 using Demo.Tests.Metadata;
 using Demo.Tests.TestData;
-using Demo.WebModule.Ui;
+using Demo.WebModule.Gui;
 using Unicorn.Taf.Core.Testing;
 using Unicorn.Taf.Core.Testing.Attributes;
 using Unicorn.Taf.Core.Verification;

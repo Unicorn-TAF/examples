@@ -3,7 +3,7 @@ using Demo.Tests.BO;
 using Demo.Tests.Metadata;
 using Demo.Tests.TestData;
 using Demo.WebModule;
-using Demo.WebModule.Ui;
+using Demo.WebModule.Gui;
 using System.Collections.Generic;
 using System.Linq;
 using Unicorn.Taf.Core.Testing;

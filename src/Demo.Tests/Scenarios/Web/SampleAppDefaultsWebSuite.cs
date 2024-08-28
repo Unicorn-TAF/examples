@@ -1,5 +1,5 @@
 ﻿using Demo.WebModule;
-using Demo.WebModule.Ui;
+using Demo.WebModule.Gui;
 using Demo.Tests.Base;
 using Demo.Tests.Metadata;
 using System.Collections.Generic;

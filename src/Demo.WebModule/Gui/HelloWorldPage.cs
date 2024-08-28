@@ -7,7 +7,7 @@ using Unicorn.UI.Web.Driver;
 using Unicorn.UI.Web.PageObject;
 using Unicorn.UI.Web.PageObject.Attributes;
 
-namespace Demo.WebModule.Ui
+namespace Demo.WebModule.Gui
 {
     /// <summary>
     /// Example of web page (see also <seealso cref="BasePage"/>).<br/>
