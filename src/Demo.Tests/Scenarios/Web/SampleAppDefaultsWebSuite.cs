@@ -24,7 +24,7 @@ namespace Demo.Tests.Scenarios.Web
     [Metadata("Description",
         "Example of parameterized test suite with ordered tests. Suite checks default state of sample app")]
     [Metadata("Site link", "https://unicorn-taf.github.io/test-ui-apps.html")]
-    public class SampleAppDefaultsSuite : BaseTestSuite
+    public class SampleAppDefaultsWebSuite : BaseTestSuite
     {
         private readonly BrowserType _browser;
         private TestWebsite website;
@@ -35,7 +35,7 @@ namespace Demo.Tests.Scenarios.Web
         /// Constructor for parameterized suite. It should contain the same number of parameters as suite DataSet.
         /// </summary>
         /// <param name="browser">browser type to run suite on (corresponds to same parameter of suite DataSet)</param>
-        public SampleAppDefaultsSuite(BrowserType browser)
+        public SampleAppDefaultsWebSuite(BrowserType browser)
         {
             _browser = browser;
         }

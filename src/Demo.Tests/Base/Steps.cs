@@ -11,7 +11,7 @@ namespace Demo.Tests.Base
     {
         private readonly Lazy<AssertionSteps> _assertion = new Lazy<AssertionSteps>();
         private readonly Lazy<DummyRestApiSteps> _dummyRestApi = new Lazy<DummyRestApiSteps>();
-        private readonly Lazy<StepsCharMap> _charmap = new Lazy<StepsCharMap>();
+        private readonly Lazy<StepsTestWindowsApp> _windowsApp = new Lazy<StepsTestWindowsApp>();
         private readonly Lazy<TestWebsiteSteps> _website = new Lazy<TestWebsiteSteps>();
         private readonly Lazy<StepsAndroidDialer> _android = new Lazy<StepsAndroidDialer>();
 
@@ -19,7 +19,7 @@ namespace Demo.Tests.Base
 
         public DummyRestApiSteps DummyRestApi => _dummyRestApi.Value;
 
-        public StepsCharMap CharMap => _charmap.Value;
+        public StepsTestWindowsApp DesktopApp => _windowsApp.Value;
 
         public TestWebsiteSteps Website => _website.Value;
 

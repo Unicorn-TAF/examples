@@ -13,8 +13,8 @@ namespace Demo.WebModule.Steps
     public class TestWebsiteSteps
     {
         private TestWebsite website;
-        private HelloWorldSteps _helloWorld;
-        private SamplesSteps _samples;
+        private HelloWorldSteps helloWorld;
+        private SamplesSteps samples;
 
         /// <summary>
         /// Gets web page from website cache.
@@ -25,11 +25,11 @@ namespace Demo.WebModule.Steps
         /// <summary>
         /// It makes sense to init child steps only when the are called. It's better to take care of resources :)
         /// </summary>
-        public HelloWorldSteps HelloWorld => _helloWorld ?? 
-            (_helloWorld = new HelloWorldSteps(website.GetPage<HelloWorldPage>()));
+        public HelloWorldSteps HelloWorld => helloWorld ?? 
+            (helloWorld = new HelloWorldSteps(website.GetPage<HelloWorldPage>()));
 
-        public SamplesSteps Samples => _samples ??
-            (_samples = new SamplesSteps(website.GetPage<SamplesPage>()));
+        public SamplesSteps Samples => samples ??
+            (samples = new SamplesSteps(website.GetPage<SamplesPage>()));
 
         [Step("Open Test website in {0} browser")]
         public TestWebsite Open(BrowserType browser, string siteUrl)
