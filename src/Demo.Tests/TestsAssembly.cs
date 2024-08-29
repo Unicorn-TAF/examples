@@ -1,4 +1,5 @@
-﻿using Demo.Tests.Handlers;
+﻿using Demo.Commons;
+using Demo.Tests.Handlers;
 using System.Drawing.Imaging;
 using System.IO;
 using Unicorn.AllureAgent;
@@ -28,7 +29,7 @@ namespace Demo.Tests
         public static void InitRun()
         {
             // Use of custom logger instead of default Console logger.
-            Logger.Instance = new FileLogger();
+            Logger.Instance = new CustomLogger();
 
             // Set trace logging level.
             Logger.Level = LogLevel.Trace;
@@ -40,7 +41,7 @@ namespace Demo.Tests
 
 #if NETFRAMEWORK
             // Initialize built-in screenshotter with automatic subscription to test fail event.
-            var screenshotsDir = Path.Combine(Config.Instance.TestsDir, "Screenshots");
+            var screenshotsDir = Path.Combine(TafConfig.Get.TestsDir, "Screenshots");
             screenshotter = new WinScreenshotTaker(screenshotsDir, ImageFormat.Png);
             screenshotter.ScribeToTafEvents();
 #endif

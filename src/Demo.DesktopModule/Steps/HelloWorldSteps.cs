@@ -1,5 +1,5 @@
-﻿using Demo.DesktopModule.Gui;
-using Demo.StepsInjection;
+﻿using Demo.Commons;
+using Demo.DesktopModule.Gui;
 using Unicorn.Taf.Core.Steps.Attributes;
 
 namespace Demo.DesktopModule.Steps

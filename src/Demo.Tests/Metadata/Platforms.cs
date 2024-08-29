@@ -6,7 +6,7 @@
 
         public const string Api = Prefix + "api";
         public const string Web = Prefix + "web";
-        public const string Win = Prefix + "win";
+        public const string Win = Prefix + "windows";
         public const string Android = Prefix + "android";
     }
 }

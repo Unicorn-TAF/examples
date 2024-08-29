@@ -1,4 +1,5 @@
-﻿using Demo.DesktopModule.Gui;
+﻿using Demo.Commons;
+using Demo.DesktopModule.Gui;
 using System;
 using System.Runtime.InteropServices;
 using UIAutomationClient;
@@ -14,12 +15,11 @@ namespace Demo.DesktopModule
     /// </summary>
     public class TestWindowsApp : Application
     {
-        public const string AppExeName = "TestWindowsApp.exe";
         /// <summary>
         /// Application constructor. Calls base constructor with path to application and application executable name.
         /// </summary>
         public TestWindowsApp() 
-            : base("", AppExeName) 
+            : base("", TafConfig.Get.DesktopAppName) 
         { 
         }
 

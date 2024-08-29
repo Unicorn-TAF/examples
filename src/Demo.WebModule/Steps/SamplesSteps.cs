@@ -1,6 +1,7 @@
 ﻿using Demo.WebModule.Gui;
-using Demo.StepsInjection;
+using Demo.Commons;
 using Unicorn.Taf.Core.Steps.Attributes;
+using Demo.Commons.BO;
 
 namespace Demo.WebModule.Steps
 {
@@ -12,6 +13,13 @@ namespace Demo.WebModule.Steps
         public SamplesSteps(SamplesPage page) 
         { 
             _page = page;
+        }
+
+        public void LoginWith(User user)
+        {
+            InputEmail(user.Email);
+            InputPassword(user.Password);
+            SignIn();
         }
 
         /// <summary>

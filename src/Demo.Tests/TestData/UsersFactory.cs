@@ -1,4 +1,4 @@
-﻿using Demo.Tests.BO;
+﻿using Demo.Commons.BO;
 using System;
 
 namespace Demo.Tests.TestData

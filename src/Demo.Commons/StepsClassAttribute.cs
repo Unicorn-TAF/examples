@@ -3,7 +3,7 @@ using System;
 using System.Reflection;
 using Unicorn.Taf.Core.Steps;
 
-namespace Demo.StepsInjection
+namespace Demo.Commons
 {
     /// <summary>
     /// Using aspectinjector to implement code injections during build phase.

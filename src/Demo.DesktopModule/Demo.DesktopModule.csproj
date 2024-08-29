@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Demo.StepsInjection\Demo.StepsInjection.csproj" />
+    <ProjectReference Include="..\Demo.Commons\Demo.Commons.csproj" />
   </ItemGroup>
 
 </Project>

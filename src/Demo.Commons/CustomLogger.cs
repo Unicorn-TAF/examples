@@ -5,12 +5,12 @@ using System.Reflection;
 using Unicorn.Taf.Core.Logging;
 using Unicorn.Taf.Core.Steps;
 
-namespace Demo.Tests
+namespace Demo.Commons
 {
     /// <summary>
     /// Custom implementation of logger which will be assigned to <see cref="Logger.Instance"/>
     /// </summary>
-    public sealed class FileLogger : ILogger
+    public sealed class CustomLogger : ILogger
     {
         private readonly string _logFile;
 
@@ -24,15 +24,15 @@ namespace Demo.Tests
         };
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileLogger"/> class.
+        /// Initializes a new instance of the <see cref="CustomLogger"/> class.
         /// Logger writes all messages into text file.
         /// </summary>
-        public FileLogger()
+        public CustomLogger()
         {
             // Subscribe to step start event to log step.
             StepEvents.OnStepStart += ReportStepInfo;
 
-            var logsDirectory = Path.Combine(Config.Instance.TestsDir, "Logs");
+            var logsDirectory = Path.Combine(TafConfig.Get.TestsDir, "Logs");
 
             if (!Directory.Exists(logsDirectory))
             {
@@ -52,10 +52,11 @@ namespace Demo.Tests
             if (level <= Logger.Level)
             {
                 var logString = $"{DateTime.Now:yyyy/MM/dd HH:mm:ss.ff} {_prefixes[level]}{message}";
-                WriteToFile(logString);
 
 #if DEBUG
                 System.Diagnostics.Debug.WriteLine(_prefixes[level] + message);
+#else
+                WriteToFile(logString);
 #endif
             }
         }

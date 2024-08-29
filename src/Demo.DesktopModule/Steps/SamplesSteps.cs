@@ -1,5 +1,6 @@
-﻿using Demo.DesktopModule.Gui;
-using Demo.StepsInjection;
+﻿using Demo.Commons;
+using Demo.Commons.BO;
+using Demo.DesktopModule.Gui;
 using Unicorn.Taf.Core.Steps.Attributes;
 
 namespace Demo.DesktopModule.Steps
@@ -12,6 +13,13 @@ namespace Demo.DesktopModule.Steps
         public SamplesSteps(SamplesView page) 
         { 
             _page = page;
+        }
+
+        public void LoginWith(User user)
+        {
+            InputEmail(user.Email);
+            InputPassword(user.Password);
+            SignIn();
         }
 
         /// <summary>

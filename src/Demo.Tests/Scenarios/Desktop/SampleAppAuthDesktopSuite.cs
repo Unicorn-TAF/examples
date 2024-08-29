@@ -1,7 +1,7 @@
-﻿using Demo.DesktopModule;
+﻿using Demo.Commons.BO;
+using Demo.DesktopModule;
 using Demo.DesktopModule.Gui;
 using Demo.Tests.Base;
-using Demo.Tests.BO;
 using Demo.Tests.Metadata;
 using Demo.Tests.TestData;
 using System.Collections.Generic;
@@ -55,9 +55,7 @@ namespace Demo.Tests.Scenarios.Desktop
         public void CheckAuthenticationPositiveTest()
         {
             User user = UsersFactory.GetUser(Users.JDoe);
-            Do.DesktopApp.Samples.InputEmail(user.Email);
-            Do.DesktopApp.Samples.InputPassword(user.Password);
-            Do.DesktopApp.Samples.SignIn();
+            Do.DesktopApp.Samples.LoginWith(user);
             Do.Assertion.AssertThat(Samples.WelcomeTitle, UI.Control.Visible());
         }
 
@@ -66,9 +64,7 @@ namespace Demo.Tests.Scenarios.Desktop
         [TestData(nameof(IncorrectUsersData))]
         public void CheckAuthenticationNegativeTest(User user, string errorMessage)
         {
-            Do.DesktopApp.Samples.InputEmail(user.Email);
-            Do.DesktopApp.Samples.InputPassword(user.Password);
-            Do.DesktopApp.Samples.SignIn();
+            Do.DesktopApp.Samples.LoginWith(user);
 
             Do.Assertion.AssertThat(application.Window.Modal, UI.Control.Visible());
             Do.Assertion.AssertThat(application.Window.Modal, UI.Control.HasAttributeContains("name", "Error"));

@@ -1,5 +1,5 @@
-﻿using Demo.DesktopModule.Gui;
-using Demo.Tests.BO;
+﻿using Demo.Commons.BO;
+using Demo.DesktopModule.Gui;
 using Demo.Tests.Metadata;
 using Demo.Tests.TestData;
 using System.Collections.Generic;
@@ -28,9 +28,7 @@ namespace Demo.Tests.Scenarios.Desktop
 
             User user = UsersFactory.GetDefaultUser();
             Do.DesktopApp.SwitchApp();
-            Do.DesktopApp.Samples.InputEmail(user.Email);
-            Do.DesktopApp.Samples.InputPassword(user.Password);
-            Do.DesktopApp.Samples.SignIn();
+            Do.DesktopApp.Samples.LoginWith(user);
         }
 
         public List<DataSet> ConfigurationsData() =>

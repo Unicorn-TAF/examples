@@ -1,5 +1,5 @@
-﻿using Demo.Tests.Base;
-using Demo.Tests.BO;
+﻿using Demo.Commons.BO;
+using Demo.Tests.Base;
 using Demo.Tests.Metadata;
 using Demo.Tests.TestData;
 using Demo.WebModule;
@@ -29,11 +29,9 @@ namespace Demo.Tests.Scenarios.Web
         public void ClassInit()
         {
             User user = UsersFactory.GetDefaultUser();
-            website = Do.Website.Open(Config.Instance.WebsiteUrl);
+            website = Do.Website.Open();
             Do.Website.SwitchApp();
-            Do.Website.Samples.InputEmail(user.Email);
-            Do.Website.Samples.InputPassword(user.Password);
-            Do.Website.Samples.SignIn();
+            Do.Website.Samples.LoginWith(user);
         }
 
         public List<DataSet> ConfigurationsData() =>

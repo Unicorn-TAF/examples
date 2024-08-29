@@ -1,4 +1,4 @@
-﻿using Demo.Tests.BO;
+﻿using Demo.Commons.BO;
 using Demo.Tests.Metadata;
 using Demo.Tests.TestData;
 using Demo.WebModule.Gui;
@@ -35,9 +35,7 @@ namespace Demo.Tests.Scenarios.Web
         public void CheckAuthenticationPositiveTest()
         {
             User user = UsersFactory.GetUser(Users.JDoe);
-            Do.Website.Samples.InputEmail(user.Email);
-            Do.Website.Samples.InputPassword(user.Password);
-            Do.Website.Samples.SignIn();
+            Do.Website.Samples.LoginWith(user);
             Do.Assertion.AssertThat(Samples.WelcomeTitle, UI.Control.Visible());
         }
 
@@ -46,9 +44,7 @@ namespace Demo.Tests.Scenarios.Web
         [TestData(nameof(IncorrectUsersData))]
         public void CheckAuthenticationNegativeTest(User user, string errorMessage)
         {
-            Do.Website.Samples.InputEmail(user.Email);
-            Do.Website.Samples.InputPassword(user.Password);
-            Do.Website.Samples.SignIn();
+            Do.Website.Samples.LoginWith(user);
 
             Do.Assertion.AssertThat(Samples.Modal, UI.Control.Visible());
             Do.Assertion.AssertThat(Samples.Modal, UI.Control.HasAttributeContains("class", "error"));

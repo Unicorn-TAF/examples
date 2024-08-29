@@ -1,5 +1,5 @@
-﻿using Demo.DesktopModule.Gui;
-using Demo.Tests.BO;
+﻿using Demo.Commons.BO;
+using Demo.DesktopModule.Gui;
 using Demo.Tests.Metadata;
 using Demo.Tests.TestData;
 using System.Collections.Generic;

@@ -21,7 +21,7 @@ namespace Demo.Tests.Scenarios.Web
         /// </summary>
         [BeforeSuite]
         public void ClassInit() =>
-            website = Do.Website.Open(BrowserType.Chrome, Config.Instance.WebsiteUrl);
+            website = Do.Website.Open(BrowserType.Chrome);
 
         /// <summary>
         /// Actions executed after all tests in current suite.

@@ -1,4 +1,4 @@
-﻿using Demo.StepsInjection;
+﻿using Demo.Commons;
 using Demo.WebModule.Gui;
 using Unicorn.Taf.Core.Steps.Attributes;
 using Unicorn.UI.Web;
@@ -32,8 +32,10 @@ namespace Demo.WebModule.Steps
             (samples = new SamplesSteps(website.GetPage<SamplesPage>()));
 
         [Step("Open Test website in {0} browser")]
-        public TestWebsite Open(BrowserType browser, string siteUrl)
+        public TestWebsite Open(BrowserType browser)
         {
+            string siteUrl = TafConfig.Get.TestUiAppsUrl;
+
             /*
              * Example of how to attach WebDriver to existing opened browser (browser should be started in debug mode)
              */
@@ -51,8 +53,8 @@ namespace Demo.WebModule.Steps
             return website;
         }
 
-        public TestWebsite Open(string siteUrl) =>
-            Open(BrowserType.Chrome, siteUrl);
+        public TestWebsite Open() =>
+            Open(BrowserType.Chrome);
 
         [Step("Switch app")]
         public void SwitchApp() =>

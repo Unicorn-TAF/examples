@@ -1,4 +1,4 @@
-﻿using Demo.Tests.BO;
+﻿using Demo.Commons.BO;
 using Demo.Tests.Metadata;
 using Demo.Tests.TestData;
 using Demo.WebModule.Gui;

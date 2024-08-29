@@ -5,11 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Unicorn.Backend" Version="2.0.0" />
     <PackageReference Include="Unicorn.UI.Web" Version="4.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Demo.StepsInjection\Demo.StepsInjection.csproj" />
+    <ProjectReference Include="..\Demo.Commons\Demo.Commons.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
-﻿using Demo.DesktopModule;
-using Demo.DummyRestApi;
+﻿using Demo.Commons;
+using Demo.DesktopModule;
 using Demo.Tests.Base;
+using Demo.WebModule.Api;
 using System.IO;
 using Unicorn.Taf.Core.Testing;
 using Unicorn.Taf.Core.Testing.Attributes;
@@ -36,9 +37,9 @@ namespace Demo.Tests.Scenarios.Desktop
 
         private void DownloadAppIfAbsent()
         {
-            if (!File.Exists(TestWindowsApp.AppExeName))
+            if (!File.Exists(TafConfig.Get.DesktopAppName))
             {
-                new TestApplsClient().DownloadExe();
+                new TestApplsClient().DownloadDesktopApplication();
             }
         }
     }

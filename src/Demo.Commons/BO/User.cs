@@ -1,4 +1,4 @@
-﻿namespace Demo.Tests.BO
+﻿namespace Demo.Commons.BO
 {
     public class User
     {
@@ -18,6 +18,6 @@
         public string Title { get; set; }
         
         public override string ToString() =>
-            string.Format("user %s. %s %s", Title, GivenName, FamilyName);
+            $"user {Title}. {GivenName} {FamilyName}";
     }
 }

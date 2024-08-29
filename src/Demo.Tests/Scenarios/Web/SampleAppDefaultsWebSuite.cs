@@ -1,15 +1,15 @@
-﻿using Demo.WebModule;
-using Demo.WebModule.Gui;
+﻿using Demo.Commons.BO;
 using Demo.Tests.Base;
 using Demo.Tests.Metadata;
+using Demo.Tests.TestData;
+using Demo.WebModule;
+using Demo.WebModule.Gui;
 using System.Collections.Generic;
 using Unicorn.Taf.Core.Testing;
 using Unicorn.Taf.Core.Testing.Attributes;
 using Unicorn.Taf.Core.Verification.Matchers;
 using Unicorn.UI.Core.Matchers;
 using Unicorn.UI.Web;
-using Demo.Tests.BO;
-using Demo.Tests.TestData;
 
 namespace Demo.Tests.Scenarios.Web
 {
@@ -59,7 +59,7 @@ namespace Demo.Tests.Scenarios.Web
         /// </summary>
         [BeforeSuite]
         public void ClassInit() =>
-            website = Do.Website.Open(_browser, Config.Instance.WebsiteUrl);
+            website = Do.Website.Open(_browser);
 
         [Author(Authors.JDoe)]
         [Test("Sample app authentication default layout")]
@@ -83,9 +83,7 @@ namespace Demo.Tests.Scenarios.Web
 
             // Precondition to open main page
 
-            Do.Website.Samples.InputEmail(user.Email);
-            Do.Website.Samples.InputPassword(user.Password);
-            Do.Website.Samples.SignIn();
+            Do.Website.Samples.LoginWith(user);
 
             Do.Assertion.StartAssertionsChain()
                 .VerifyThat(Samples.WelcomeTitle, UI.Control.HasText("Welcome!"))

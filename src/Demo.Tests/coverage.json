@@ -20,6 +20,14 @@
 		{
 			"name": "API",
 			"features": [ "platform:api" ]
+		},
+		{
+			"name": "Hello World application",
+			"features": [ "app:hello-world" ]
+		},
+		{
+			"name": "Sample application",
+			"features": [ "app:samples" ]
 		}
 	]
 }
