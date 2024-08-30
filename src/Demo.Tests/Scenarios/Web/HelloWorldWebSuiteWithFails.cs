@@ -30,6 +30,7 @@ namespace Demo.Tests.Scenarios.Web
         /// some specific conditions when one wants to consider the bug (exception Type or part of error message)
         /// </summary>
         [Author(Authors.JDoe)]
+        [TestCaseId("1")]
         [Test("'Say' button functionality without title (intended to fail)")]
         [Bug("1", typeof(AssertionException), "was having text = ' Rudolf said")]
         public void SayingWithoutTitleFailingTest()
