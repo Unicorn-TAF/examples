@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0;net472</TargetFrameworks>
+    <!--<TargetFrameworks>net5.0;net472</TargetFrameworks>-->
+    <TargetFrameworks>net5.0</TargetFrameworks>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <IsPackable>false</IsPackable>
     <RollForward>LatestMajor</RollForward>
@@ -11,6 +12,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="128.0.6613.8600" />
     <PackageReference Include="Unicorn.AllureAgent" Version="2.2.0" />
+    <PackageReference Include="Unicorn.Reporting.TestIT" Version="1.0.0" />
     <PackageReference Include="Unicorn.ReportPortalAgent" Version="3.0.0" />
     <PackageReference Include="Unicorn.TestAdapter" Version="3.2.0" />
   </ItemGroup>
@@ -34,6 +36,9 @@
     </None>
     <None Update="ReportPortal.config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Tms.config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>

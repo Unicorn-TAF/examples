@@ -38,7 +38,10 @@ namespace Demo.Tests.Handlers
                 if (validBug)
                 {
                     // Generate nice comment with link to a bug for report portal
-                    string comment = $"[Issue on GitHub]({TafConfig.Get.BtsIssueUrl}{bugAttribute.Bug})";
+                    string comment = $"{TafConfig.Get.BtsIssueUrl}{bugAttribute.Bug}";
+
+                    // Report Portal supports markdown in descriptions, so comment could be generated as:
+                    //string comment = $"[Issue on GitHub]({TafConfig.Get.BtsIssueUrl}{bugAttribute.Bug})";
 
                     // using Defect object here, need to specify mandatory ID and defect type
                     // (for example ReportPortal considers type field in defects categorization),

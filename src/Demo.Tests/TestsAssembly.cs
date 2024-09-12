@@ -3,6 +3,7 @@ using Demo.Tests.Handlers;
 using System.Drawing.Imaging;
 using System.IO;
 using Unicorn.AllureAgent;
+using Unicorn.Reporting.TestIt;
 using Unicorn.ReportPortalAgent;
 using Unicorn.Taf.Core.Logging;
 using Unicorn.Taf.Core.Testing.Attributes;
@@ -17,6 +18,7 @@ namespace Demo.Tests
     public class TestsAssembly
     {
         private static AllureReporterInstance reporter;
+        //private static ReporterInstance reporter;
         //private static ReportPortalReporterInstance reporter;
         private static GitHubBts bts;
         private static WinScreenshotTaker screenshotter;
@@ -48,13 +50,17 @@ namespace Demo.Tests
 
             bts = new GitHubBts();
 
-            // Initialize built-in allure reporter with automatic subscription to all testing events.
+            // Initialize built-in Allure reporter with automatic subscription to all testing events.
             // allureConfig.json should exist in binaries directory.
             reporter = new AllureReporterInstance();
 
-            // Initialize built-in report portal reporter with automatic subscription to all testing events.
+            // Initialize built-in Report Portal reporter with automatic subscription to all testing events.
             // ReportPortal.config.json should exist in binaries directory.
             //reporter = new ReportPortalReporterInstance();
+
+            // Initialize built-in TestIT reporter with automatic subscription to all testing events.
+            // Tms.config.json should exist in binaries directory.
+            //reporter = new ReporterInstance();
         }
 
         /// <summary>
