@@ -1,7 +1,8 @@
 ﻿using AspectInjector.Broker;
 using System;
 using System.Reflection;
-using Unicorn.Taf.Core.Steps;
+using Unicorn.Taf.Core;
+using Unicorn.Taf.Core.Steps.Attributes;
 
 namespace Demo.Commons
 {
@@ -20,14 +21,23 @@ namespace Demo.Commons
             [Argument(Source.Target)] Func<object[], object> method,
             [Argument(Source.Metadata)] MethodBase methodBase)
         {
-            // calling OnStepStart event before step method execution.
-            StepEvents.CallOnStepStartEvent(methodBase, arguments);
+            bool isStep = methodBase.IsDefined(typeof(StepAttribute), true);
+
+            if (isStep)
+            {
+                // calling OnStepStart event before step method execution.
+                TafEvents.CallOnStepStartEvent(methodBase, arguments);
+            }
 
             // calling the step itself.
             var result = method(arguments);
 
-            //calling OnStepFinish event after step method execution.
-            StepEvents.CallOnStepFinishEvent(methodBase, arguments);
+            if (isStep)
+            {
+                //calling OnStepFinish event after step method execution.
+                TafEvents.CallOnStepFinishEvent(methodBase, arguments);
+            }
+
             return result;
         }
     }
