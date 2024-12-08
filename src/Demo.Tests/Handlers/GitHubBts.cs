@@ -1,6 +1,7 @@
 ﻿using Demo.Commons;
 using System;
 using System.Reflection;
+using Unicorn.Taf.Core;
 using Unicorn.Taf.Core.Testing;
 using Unicorn.Taf.Core.Testing.Attributes;
 
@@ -15,7 +16,7 @@ namespace Demo.Tests.Handlers
         public GitHubBts() 
         {
             // Subscribe to test fail events
-            Test.OnTestFail += HandleOpenIssues;
+            TafEvents.OnTestFail += HandleOpenIssues;
         }
 
         /// <summary>
@@ -57,7 +58,7 @@ namespace Demo.Tests.Handlers
         /// </summary>
         public void Dispose()
         {
-            Test.OnTestFail -= HandleOpenIssues;
+            TafEvents.OnTestFail -= HandleOpenIssues;
         }
     }
 }

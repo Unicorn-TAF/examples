@@ -3,7 +3,7 @@ using Unicorn.Taf.Core.Testing;
 
 namespace Demo.Tests.Base
 {
-    public class BaseTestSuite : TestSuite
+    public class BaseTestSuite
     {
         private readonly Lazy<Steps> _steps = new Lazy<Steps>();
 

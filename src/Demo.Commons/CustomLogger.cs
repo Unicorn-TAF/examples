@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using Unicorn.Taf.Core.Logging;
+using Unicorn.Taf.Api;
+using Unicorn.Taf.Core;
 using Unicorn.Taf.Core.Steps;
 
 namespace Demo.Commons
@@ -14,15 +14,6 @@ namespace Demo.Commons
     {
         private readonly string _logFile;
 
-        private readonly Dictionary<LogLevel, string> _prefixes = new Dictionary<LogLevel, string>
-        {
-            { LogLevel.Error, $"  [Error]: " },
-            { LogLevel.Warning, $"[Warning]: " },
-            { LogLevel.Info, $"   [Info]: " },
-            { LogLevel.Debug, $"  [Debug]: \t" },
-            { LogLevel.Trace, $"  [Trace]: \t\t" },
-        };
-
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomLogger"/> class.
         /// Logger writes all messages into text file.
@@ -30,7 +21,7 @@ namespace Demo.Commons
         public CustomLogger()
         {
             // Subscribe to step start event to log step.
-            StepEvents.OnStepStart += ReportStepInfo;
+            TafEvents.OnStepStart += ReportStepInfo;
 
             var logsDirectory = Path.Combine(TafConfig.Get.TestsDir, "Logs");
 
@@ -42,29 +33,36 @@ namespace Demo.Commons
             _logFile = Path.Combine(logsDirectory, "tests-execution.log");
         }
 
-        /// <summary>
-        /// Logs a message to a file with specified verbosity level and current timestamp.
-        /// </summary>
-        /// <param name="level">verbosity level</param>
-        /// <param name="message">message to log</param>
-        public void Log(LogLevel level, string message)
+        public void Debug(string message, params object[] parameters) =>
+            Log("  [Debug]:   ", message, parameters);
+
+        public void Error(string message, params object[] parameters) =>
+            Log("  [Error]: ", message, parameters);
+
+        public void Info(string message, params object[] parameters) =>
+            Log("   [Info]: ", message, parameters);
+
+        public void Trace(string message, params object[] parameters) =>
+            Log("  [Trace]:     ", message, parameters);
+
+        public void Warn(string message, params object[] parameters) =>
+            Log("[Warning]: ", message, parameters);
+
+        private void Log(string prefix, string message, object[] parameters)
         {
-            if (level <= Logger.Level)
-            {
-                var logString = $"{DateTime.Now:yyyy/MM/dd HH:mm:ss.ff} {_prefixes[level]}{message}";
+            var logString = $"{DateTime.Now:yyyy/MM/dd HH:mm:ss.ff} {prefix}{string.Format(message, parameters)}";
 
 #if DEBUG
-                System.Diagnostics.Debug.WriteLine(_prefixes[level] + message);
+            System.Diagnostics.Debug.WriteLine(prefix + message);
 #else
-                WriteToFile(logString);
+            WriteToFile(logString);
 #endif
-            }
         }
 
         private void ReportStepInfo(MethodBase method, object[] arguments)
         {
             var info = StepsUtilities.GetStepInfo(method, arguments);
-            Log(LogLevel.Info, "STEP: " + info);
+            Info("STEP: " + info);
         }
 
         /// <summary>
