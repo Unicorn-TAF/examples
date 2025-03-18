@@ -3,16 +3,16 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
-    <RollForward>LatestMajor</RollForward>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="*" />
-    <PackageReference Include="Unicorn.Reporting.Allure" Version="3.0.0" />
-    <PackageReference Include="Unicorn.Reporting.ReportPortal" Version="4.0.0" />
+    <PackageReference Include="Unicorn.Reporting.Allure" Version="3.0.1" />
+    <PackageReference Include="Unicorn.Reporting.ReportPortal" Version="4.0.1" />
     <PackageReference Include="Unicorn.Reporting.TestIT" Version="2.0.0" />
-    <PackageReference Include="Unicorn.TestAdapter" Version="4.0.0" />
+    <PackageReference Include="Unicorn.Taf.Core" Version="4.2.0" />
+    <PackageReference Include="Unicorn.TestAdapter" Version="5.0.0" />
   </ItemGroup>
     
   <ItemGroup>

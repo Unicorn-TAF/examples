@@ -1,6 +1,7 @@
 ﻿using Demo.Commons;
 using Demo.Tests.Handlers;
 using Unicorn.Reporting.Allure;
+using Unicorn.Reporting.ReportPortal;
 using Unicorn.Taf.Api;
 using Unicorn.Taf.Core;
 using Unicorn.Taf.Core.Logging;
@@ -65,10 +66,10 @@ namespace Demo.Tests
         public static void FinalizeRun()
         {
             // Unsubscribe reporter from unicorn events.
-            reporter.Dispose();
+            reporter?.Dispose();
             reporter = null;
 
-            // unsubscribing screenshotter from unicorn events.
+            // Unsubscribing screenshotter from unicorn events.
             screenshotter.UnsubscribeFromTafEvents();
             screenshotter = null;
 
