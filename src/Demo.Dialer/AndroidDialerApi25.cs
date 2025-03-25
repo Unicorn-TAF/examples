@@ -16,15 +16,15 @@ namespace Demo.AndroidDialer
         /// </summary>
         /// <param name="hubAddress">address of appium server</param>
         /// <param name="deviceName">name of device</param>
-        public AndroidDialerApi25(string hubAddress, string deviceName) 
-            : base("com.google.android.dialer", "DialtactsActivity", "7.1.1", deviceName, hubAddress) 
-        { 
+        public AndroidDialerApi25(string hubAddress, string deviceName)
+            : base("com.google.android.dialer", "DialtactsActivity", "7.1.1", deviceName, hubAddress)
+        {
         }
 
         /// <summary>
         /// Gets main application frame as search context for child controls.
         /// </summary>
-        public DialerFrame AppFrame => 
+        public DialerFrame AppFrame =>
             Driver.Find<DialerFrame>(ByLocator.Id("com.google.android.dialer:id/decor_content_parent"));
     }
 }

@@ -10,7 +10,7 @@ namespace Demo.AndroidDialer.Ui
     [Find(Using.Id, "com.google.android.dialer:id/dialtacts_mainlayout")]
     public class DialPad : AndroidContainer
     {
-        private readonly string[] _unitsMap = 
+        private readonly string[] _unitsMap =
             new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
         [ById("com.google.android.dialer:id/digits")]

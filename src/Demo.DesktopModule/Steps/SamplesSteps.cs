@@ -10,8 +10,8 @@ namespace Demo.DesktopModule.Steps
     {
         private readonly SamplesView _page;
 
-        public SamplesSteps(SamplesView page) 
-        { 
+        public SamplesSteps(SamplesView page)
+        {
             _page = page;
         }
 
@@ -23,7 +23,7 @@ namespace Demo.DesktopModule.Steps
         }
 
         /// <summary>
-        /// Example of step with description and parmeters (though <see cref="StepAttribute"/>).
+        /// Example of step with description and parameters (though <see cref="StepAttribute"/>).
         /// After subscription to test events it's possible to use attribute for reporting needs for example.
         /// With placeholders parameters could be substitured into description.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Demo.DesktopModule.Steps
         // If it's necessary to NOT to log sensitive info, it's better to call custom method.
         [Step("Input password")]
         public void InputPassword(string password) =>
-            _page.SetPassword(password); 
+            _page.SetPassword(password);
 
         [Step("Sign in")]
         public void SignIn() =>

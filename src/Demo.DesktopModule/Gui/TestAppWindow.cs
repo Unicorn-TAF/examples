@@ -26,6 +26,6 @@ namespace Demo.DesktopModule.Gui
         public SamplesView SamplesView { get; set; }
 
         [Name("Modal window"), ByClass("#32770")]
-        public ModalWindow Modal {  get; set; }
+        public ModalWindow Modal { get; set; }
     }
 }

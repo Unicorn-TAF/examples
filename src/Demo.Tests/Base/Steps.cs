@@ -1,7 +1,7 @@
 ﻿using Demo.AndroidDialer.Steps;
-using Demo.WebModule.Steps;
 using Demo.DesktopModule.Steps;
 using Demo.DummyRestApi;
+using Demo.WebModule.Steps;
 using System;
 using Unicorn.Taf.Core.Steps;
 

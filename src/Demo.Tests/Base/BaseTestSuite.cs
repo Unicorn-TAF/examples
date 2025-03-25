@@ -1,5 +1,4 @@
 ﻿using System;
-using Unicorn.Taf.Core.Testing;
 
 namespace Demo.Tests.Base
 {

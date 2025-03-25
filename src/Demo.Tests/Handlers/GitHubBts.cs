@@ -13,7 +13,7 @@ namespace Demo.Tests.Handlers
         /// Initialize github issues handler (suppose our example product issues are stored there).
         /// Consider scenario, that one wants to attach link to defect in case test is failed and linked defect is opened.
         /// </summary>
-        public GitHubBts() 
+        public GitHubBts()
         {
             // Subscribe to test fail events
             TafEvents.OnTestFail += HandleOpenIssues;

@@ -29,22 +29,22 @@ namespace Demo.Tests.Scenarios.Desktop
         /// Data for parameterized test. The method should return a list of <see cref="DataSet"/>.<br/>
         /// First parameter of <see cref="DataSet"/> is data set name and it is not a part of test data. <br/>
         /// For test parameterization the method could be static or non-static.<br/>
-        /// For whole suite parametherization th method should have <see cref="SuiteDataAttribute"/> 
+        /// For whole suite parameterization th method should have <see cref="SuiteDataAttribute"/> 
         /// and should be <c>static</c>.
         /// </summary>
         public List<DataSet> TestParameters() =>
             new List<DataSet>
             {
-                new DataSet("Nothing selected", 
-                    new User("", "", "", "", ""), "Name is empty", 
+                new DataSet("Nothing selected",
+                    new User("", "", "", "", ""), "Name is empty",
                     UI.Control.HasAttributeContains("name", "Error")),
 
-                new DataSet("Only title", 
+                new DataSet("Only title",
                     UsersFactory.GetUser(Users.NoGivenName), "Name is empty",
                     UI.Control.HasAttributeContains("name", "Error")),
 
-                new DataSet("Title and name", 
-                    UsersFactory.GetUser(Users.JDoe), "Mr John said: 'Hello World!'", 
+                new DataSet("Title and name",
+                    UsersFactory.GetUser(Users.JDoe), "Mr John said: 'Hello World!'",
                     Is.Not(UI.Control.HasAttributeContains("name", "Error"))),
             };
 

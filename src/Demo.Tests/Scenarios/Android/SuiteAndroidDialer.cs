@@ -1,16 +1,16 @@
-﻿using Unicorn.Taf.Core.Testing;
-using Unicorn.Taf.Core.Testing.Attributes;
-using Unicorn.UI.Core.Matchers;
-using Demo.AndroidDialer;
+﻿using Demo.AndroidDialer;
 using Demo.Tests.Base;
-using Unicorn.UI.Core.PageObject;
-using Unicorn.Taf.Core.Verification.Matchers;
 using Demo.Tests.Metadata;
+using Unicorn.Taf.Core.Testing;
+using Unicorn.Taf.Core.Testing.Attributes;
+using Unicorn.Taf.Core.Verification.Matchers;
+using Unicorn.UI.Core.Matchers;
+using Unicorn.UI.Core.PageObject;
 
 namespace Demo.Tests.Scenarios.Android
 {
     /// <summary>
-    /// Example of disabled test suite, it coul be done usind <see cref="DisabledAttribute"/>. 
+    /// Example of disabled test suite, it could be done using <see cref="DisabledAttribute"/>. 
     /// (Disabled suite means that all it's tests will not be executed, but they're still discoverable and can be collected in stats)
     /// </summary>
     [Disabled("Android emulator is not configured")]
@@ -49,7 +49,7 @@ namespace Demo.Tests.Scenarios.Android
         }
 
         /// <summary>
-        /// Example of disabled test, it coul be done usind <see cref="DisabledAttribute"/>. 
+        /// Example of disabled test, it could be done using <see cref="DisabledAttribute"/>. 
         /// (The test will not be executed, but it's still discoverable and can be collected in stats)
         /// </summary>
         [Disabled("Disable reason")]

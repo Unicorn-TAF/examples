@@ -11,7 +11,7 @@ namespace Demo.Commons
 
         public static TafConfig Get => instance ?? (instance = new TafConfig());
 
-        public string TestsDir { get; } =  Path.GetDirectoryName(new Uri(typeof(TafConfig).Assembly.Location).LocalPath);
+        public string TestsDir { get; } = Path.GetDirectoryName(new Uri(typeof(TafConfig).Assembly.Location).LocalPath);
 
         public string BtsIssueUrl { get; } = "https://github.com/Unicorn-TAF/examples/issues/";
 

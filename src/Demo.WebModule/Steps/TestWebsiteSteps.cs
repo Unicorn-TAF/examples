@@ -18,14 +18,14 @@ namespace Demo.WebModule.Steps
 
         /// <summary>
         /// Gets web page from website cache.
-        /// If page was already initializaed and called before the same instance is used further.
+        /// If page was already initialized and called before the same instance is used further.
         /// </summary>
         private HelloWorldPage Home => website.GetPage<HelloWorldPage>();
 
         /// <summary>
         /// It makes sense to init child steps only when the are called. It's better to take care of resources :)
         /// </summary>
-        public HelloWorldSteps HelloWorld => helloWorld ?? 
+        public HelloWorldSteps HelloWorld => helloWorld ??
             (helloWorld = new HelloWorldSteps(website.GetPage<HelloWorldPage>()));
 
         public SamplesSteps Samples => samples ??

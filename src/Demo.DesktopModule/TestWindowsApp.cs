@@ -18,9 +18,9 @@ namespace Demo.DesktopModule
         /// <summary>
         /// Application constructor. Calls base constructor with path to application and application executable name.
         /// </summary>
-        public TestWindowsApp() 
-            : base("", TafConfig.Get.DesktopAppName) 
-        { 
+        public TestWindowsApp()
+            : base("", TafConfig.Get.DesktopAppName)
+        {
         }
 
         public TestAppWindow Window { get; private set; }

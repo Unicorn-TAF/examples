@@ -37,7 +37,7 @@ namespace Demo.Tests.Scenarios.Web
         public List<DataSet> ConfigurationsData() =>
             new List<DataSet>
             {
-                new DataSet("Configuration #1", ConfigData.Runtimes.Net, ConfigData.Reports.ReportPortal, 
+                new DataSet("Configuration #1", ConfigData.Runtimes.Net, ConfigData.Reports.ReportPortal,
                     new string[] { }),
 
                 new DataSet("Configuration #2", ConfigData.Runtimes.NetCore, ConfigData.Reports.Allure,

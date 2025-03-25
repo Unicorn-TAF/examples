@@ -1,7 +1,7 @@
-﻿using Demo.WebModule.Gui;
-using Demo.Commons;
-using Unicorn.Taf.Core.Steps.Attributes;
+﻿using Demo.Commons;
 using Demo.Commons.BO;
+using Demo.WebModule.Gui;
+using Unicorn.Taf.Core.Steps.Attributes;
 
 namespace Demo.WebModule.Steps
 {
@@ -10,8 +10,8 @@ namespace Demo.WebModule.Steps
     {
         private readonly SamplesPage _page;
 
-        public SamplesSteps(SamplesPage page) 
-        { 
+        public SamplesSteps(SamplesPage page)
+        {
             _page = page;
         }
 
@@ -23,9 +23,9 @@ namespace Demo.WebModule.Steps
         }
 
         /// <summary>
-        /// Example of step with description and parmeters (though <see cref="StepAttribute"/>).
+        /// Example of step with description and parameters (though <see cref="StepAttribute"/>).
         /// After subscription to test events it's possible to use attribute for reporting needs for example.
-        /// With placeholders parameters could be substitured into description.
+        /// With placeholders parameters could be substituted into description.
         /// </summary>
         [Step("Input '{0}' email")]
         public void InputEmail(string email) =>
@@ -34,7 +34,7 @@ namespace Demo.WebModule.Steps
         // If it's necessary to NOT to log sensitive info, it's better to call Instance from an element when sending keys.
         [Step("Input password")]
         public void InputPassword(string password) =>
-            _page.PasswordInput.Instance.SendKeys(password); 
+            _page.PasswordInput.Instance.SendKeys(password);
 
         [Step("Sign in")]
         public void SignIn() =>

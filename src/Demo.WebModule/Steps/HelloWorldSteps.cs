@@ -13,15 +13,15 @@ namespace Demo.WebModule.Steps
     {
         private readonly HelloWorldPage _page;
 
-        public HelloWorldSteps(HelloWorldPage page) 
-        { 
+        public HelloWorldSteps(HelloWorldPage page)
+        {
             _page = page;
         }
 
         /// <summary>
         /// Example of step with description through <see cref="StepAttribute"/>. 
         /// After subscription to test events it's possible to use attribute for reporting needs for example.
-        /// Through placeholders parameters of step method could be substitured into description.
+        /// Through placeholders parameters of step method could be substituted into description.
         /// </summary>
         [Step("Select '{0}' title")]
         public void SelectTitle(string title) =>
