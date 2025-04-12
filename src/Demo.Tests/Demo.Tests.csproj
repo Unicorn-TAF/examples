@@ -11,7 +11,7 @@
     <PackageReference Include="Unicorn.Reporting.Allure" Version="3.0.1" />
     <PackageReference Include="Unicorn.Reporting.ReportPortal" Version="4.0.1" />
     <PackageReference Include="Unicorn.Reporting.TestIT" Version="2.0.0" />
-    <PackageReference Include="Unicorn.Taf.Core" Version="4.2.0" />
+    <PackageReference Include="Unicorn.Taf.Core" Version="4.3.0" />
     <PackageReference Include="Unicorn.TestAdapter" Version="5.0.0" />
   </ItemGroup>
     

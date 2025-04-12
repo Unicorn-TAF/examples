@@ -27,8 +27,8 @@ namespace Demo.Tests.Scenarios.RestService
             RestResponse userResponse = Do.DummyRestApi.GetUser(2);
 
             Do.Assertion.StartAssertionsChain()
-                .VerifyThat(userResponse, Service.Rest.Response.HasStatusCode(HttpStatusCode.OK))
-                .VerifyThat(userResponse, Service.Rest.Response.HasTokenWithValue("$.data.id", 2))
+                .VerifyThat(userResponse, ApiResponse.HasStatusCode(HttpStatusCode.OK))
+                .VerifyThat(userResponse, ApiResponse.Rest.HasTokenWithValue("$.data.id", 2))
                 .AssertChain();
         }
 
@@ -39,12 +39,12 @@ namespace Demo.Tests.Scenarios.RestService
             RestResponse userResponse = Do.DummyRestApi.GetUsersPage(2);
 
             Do.Assertion.StartAssertionsChain()
-                .VerifyThat(userResponse, Service.Rest.Response.HasStatusCode(HttpStatusCode.OK))
-                .VerifyThat(userResponse, Service.Rest.Response.HasTokenWithValue("$.page", 2))
-                .VerifyThat(userResponse, Service.Rest.Response.HasTokenWithValue("$.per_page", 6))
-                .VerifyThat(userResponse, Service.Rest.Response.HasTokenWithValue("$.total", 12))
-                .VerifyThat(userResponse, Service.Rest.Response.HasTokenWithValue("$.total_pages", 2))
-                .VerifyThat(userResponse, Service.Rest.Response.HasTokensCount("$.data[*]", 6))
+                .VerifyThat(userResponse, ApiResponse.Rest.HasStatusCode(HttpStatusCode.OK))
+                .VerifyThat(userResponse, ApiResponse.Rest.HasTokenWithValue("$.page", 2))
+                .VerifyThat(userResponse, ApiResponse.Rest.HasTokenWithValue("$.per_page", 6))
+                .VerifyThat(userResponse, ApiResponse.Rest.HasTokenWithValue("$.total", 12))
+                .VerifyThat(userResponse, ApiResponse.Rest.HasTokenWithValue("$.total_pages", 2))
+                .VerifyThat(userResponse, ApiResponse.Rest.HasTokensCount("$.data[*]", 6))
                 .AssertChain();
         }
 
@@ -57,7 +57,7 @@ namespace Demo.Tests.Scenarios.RestService
 
             Do.Assertion.AssertThat(
                 response,
-                Service.Rest.Response.HasStatusCode(HttpStatusCode.BadRequest));
+                ApiResponse.HasStatusCode(HttpStatusCode.BadRequest));
         }
     }
 }

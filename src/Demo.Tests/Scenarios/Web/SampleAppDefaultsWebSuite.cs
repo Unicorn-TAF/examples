@@ -7,6 +7,7 @@ using Demo.WebModule.Gui;
 using System.Collections.Generic;
 using Unicorn.Taf.Core.Testing;
 using Unicorn.Taf.Core.Testing.Attributes;
+using Unicorn.Taf.Core.Utility;
 using Unicorn.Taf.Core.Verification.Matchers;
 using Unicorn.UI.Core.Matchers;
 using Unicorn.UI.Web;
@@ -47,12 +48,8 @@ namespace Demo.Tests.Scenarios.Web
         /// </summary>
         /// <returns></returns>
         [SuiteData]
-        public static List<DataSet> GetBrowsers() =>
-            new List<DataSet>
-            {
-                new DataSet("Google Chrome", BrowserType.Chrome),
-                //new DataSet("Edge", BrowserType.Edge),
-            };
+        public static List<DataSet> GetBrowsers() => 
+            DataSetGenerator.FromItems(BrowserType.Chrome/*, BrowserType.Edge*/);
 
         /// <summary>
         /// Actions executed before whole tests in current suite.
