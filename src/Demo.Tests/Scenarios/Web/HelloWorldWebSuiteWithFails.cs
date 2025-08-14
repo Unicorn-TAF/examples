@@ -11,7 +11,7 @@ using Unicorn.UI.Core.Matchers;
 namespace Demo.Tests.Scenarios.Web
 {
     /// <summary>
-    /// Web test suite example. The class should inherit <see cref="TestSuite"/> and have <see cref="SuiteAttribute"/>.
+    /// Web test suite example. The class should have <see cref="SuiteAttribute"/>.
     /// <br/>
     /// It's possible to specify any number of suite tags and metadata.
     /// Suite tags allow to use parameterized targeted runs: suites are selected based on specific tags presence.
@@ -55,7 +55,7 @@ namespace Demo.Tests.Scenarios.Web
         [Author(Authors.JDoe)]
         [DependsOn(nameof(SayingWithoutTitleFailingTest))]
         [Test("Test with dependency on failed test")]
-        public void TestWithDependencyOnFailedeTest()
+        public void TestWithDependencyOnFailedTest()
         {
             Do.Website.HelloWorld.CloseModalWindow();
             Do.Assertion.AssertThat(HelloWorld.Modal, Is.Not(UI.Control.Visible()));

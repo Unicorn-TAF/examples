@@ -12,7 +12,7 @@ using Unicorn.UI.Core.Matchers;
 namespace Demo.Tests.Scenarios.Desktop
 {
     /// <summary>
-    /// Web test suite example. The class should inherit <see cref="TestSuite"/> and have <see cref="SuiteAttribute"/>.
+    /// Web test suite example. The class should have <see cref="SuiteAttribute"/>.
     /// <br/>
     /// It's possible to specify any number of suite tags and metadata.
     /// Suite tags allow to use parameterized targeted runs: suites are selected based on specific tags presence.
@@ -59,7 +59,7 @@ namespace Demo.Tests.Scenarios.Desktop
         [Test("Hello World page default layout")]
         public void TestHelloWorldDefaultLayout() =>
             Do.Assertion.StartAssertionsChain()
-                .VerifyThat(application.Window, UI.Window.HasTitle("\"Hello World\" app"))
+                .VerifyThat(application.Window, UI.Control.HasTitle("\"Hello World\" app"))
                 .VerifyThat(HelloWorld.TitleDropdown, UI.Dropdown.HasSelectedValue(""))
                 .VerifyThat(HelloWorld.NameInput, UI.TextInput.HasValue(string.Empty))
                 .AssertChain();

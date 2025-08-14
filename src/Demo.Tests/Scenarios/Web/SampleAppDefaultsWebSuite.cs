@@ -17,7 +17,7 @@ namespace Demo.Tests.Scenarios.Web
     /// <summary>
     /// Example of parameterized test suite (the whole suite is run for all entries in data set), 
     /// the suite should be marked with <see cref="ParameterizedAttribute"/>.
-    /// The class should inherit <see cref="TestSuite"/> and have <see cref="SuiteAttribute"/>.
+    /// The class should have <see cref="SuiteAttribute"/>.
     /// </summary>
     [Parameterized]
     [Suite("Sample app defaults")]

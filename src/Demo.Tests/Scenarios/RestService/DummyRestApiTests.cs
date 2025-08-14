@@ -11,7 +11,7 @@ namespace Demo.Tests.Scenarios.RestService
 {
     /// <summary>
     /// Rest web service test suite example.
-    /// The test suite should inherit <see cref="TestSuite"/> and have <see cref="SuiteAttribute"/>
+    /// The test suite should have <see cref="SuiteAttribute"/>
     /// It's possible to specify any number of suite tags and metadata.
     /// </summary>
     [Suite("Dummy Rest Api tests")]

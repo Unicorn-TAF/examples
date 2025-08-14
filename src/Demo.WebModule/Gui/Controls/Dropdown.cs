@@ -36,8 +36,9 @@ namespace Demo.WebModule.Gui.Controls
             Expand();
 
             WebControl item = GetItem(itemName);
+            string text = item.Text;
             string classValue = item.GetAttribute("class");
-            bool needToSelect = classValue != null && !classValue.Contains("selected");
+            bool needToSelect = classValue == null || !classValue.Contains("selected");
 
             if (needToSelect)
             {
