@@ -11,10 +11,10 @@
     <PackageReference Include="Unicorn.Reporting.Allure" Version="3.0.2" />
     <PackageReference Include="Unicorn.Reporting.ReportPortal" Version="4.0.1" />
     <PackageReference Include="Unicorn.Reporting.TestIT" Version="2.0.0" />
-    <PackageReference Include="Unicorn.Taf.Core" Version="4.3.0" />
-    <PackageReference Include="Unicorn.TestAdapter" Version="5.0.0" />
+    <PackageReference Include="Unicorn.Taf.Core" Version="4.4.0" />
+    <PackageReference Include="Unicorn.TestAdapter" Version="5.0.1" />
   </ItemGroup>
-    
+
   <ItemGroup>
     <ProjectReference Include="..\Demo.WebModule\Demo.WebModule.csproj" />
     <ProjectReference Include="..\Demo.DesktopModule\Demo.DesktopModule.csproj" />
