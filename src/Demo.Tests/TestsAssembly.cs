@@ -1,4 +1,4 @@
-﻿using Demo.Commons;
+using Demo.Commons;
 using Demo.Tests.Handlers;
 using System;
 using Unicorn.Reporting.Allure;
@@ -36,7 +36,7 @@ namespace Demo.Tests
             // Set trace logging level.
             ULog.SetLevel(LogLevel.Trace);
 
-            // It's possible to customize TAF configuration in assembly init. 
+            // It's possible to customize TAF configuration in assembly init.
             // Current setting controls behavior of dependent tests in case when referenced test is failed
             // (tests could be failed, skipped or not run)
             Config.DependentTests = TestsDependency.Skip;
