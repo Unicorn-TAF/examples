@@ -1,7 +1,7 @@
-﻿using Demo.Commons;
-using Demo.Commons.BO;
+﻿using Demo.Commons.BO;
 using Demo.WebModule.Gui;
 using Unicorn.Taf.Core.Steps.Attributes;
+using Unicorn.Taf.StepsInjection;
 
 namespace Demo.WebModule.Steps
 {

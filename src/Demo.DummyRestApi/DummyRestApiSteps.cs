@@ -1,7 +1,7 @@
-﻿using Demo.Commons;
-using System.Net.Http;
+﻿using System.Net.Http;
 using Unicorn.Backend.Services.RestService;
 using Unicorn.Taf.Core.Steps.Attributes;
+using Unicorn.Taf.StepsInjection;
 
 namespace Demo.DummyRestApi
 {

@@ -1,6 +1,6 @@
-﻿using Demo.Commons;
-using Demo.WebModule.Gui;
+﻿using Demo.WebModule.Gui;
 using Unicorn.Taf.Core.Steps.Attributes;
+using Unicorn.Taf.StepsInjection;
 
 namespace Demo.WebModule.Steps
 {
@@ -19,7 +19,7 @@ namespace Demo.WebModule.Steps
         }
 
         /// <summary>
-        /// Example of step with description through <see cref="StepAttribute"/>. 
+        /// Example of step with description through <see cref="StepAttribute"/>.
         /// After subscription to test events it's possible to use attribute for reporting needs for example.
         /// Through placeholders parameters of step method could be substituted into description.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Demo.WebModule.Steps
             _page.NameInput.SetValue(name);
 
         /// <summary>
-        /// Example of step without placeholders in description. 
+        /// Example of step without placeholders in description.
         /// </summary>
         [Step("Click 'Say'")]
         public void ClickSay() =>

@@ -1,5 +1,5 @@
-﻿using Demo.Commons;
-using Unicorn.Taf.Core.Steps.Attributes;
+﻿using Unicorn.Taf.Core.Steps.Attributes;
+using Unicorn.Taf.StepsInjection;
 
 namespace Demo.AndroidDialer.Steps
 {
