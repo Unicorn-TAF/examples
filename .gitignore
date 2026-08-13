@@ -27,6 +27,9 @@ bld/
 # VSCode dir
 .vscode/
 
+# Zed dir
+.zed/
+
 # DNX
 project.lock.json
 artifacts/
